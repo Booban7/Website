@@ -1,19 +1,38 @@
 .footer {
   border-top: 1px solid var(--border);
-  padding: 2rem 0;
+  padding: 2.5rem 0;
+  background: var(--bg-alt);
 
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: var(--text-muted);
-    font-size: 0.9rem;
     gap: 1rem;
     flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  &__brand {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text);
+
+    span {
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
   }
 
   &__links {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer__inner {
+    justify-content: center;
+    text-align: center;
   }
 }

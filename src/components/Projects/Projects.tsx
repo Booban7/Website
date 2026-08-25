@@ -1,35 +1,40 @@
+import Reveal from "../Reveal/Reveal";
 import "./Projects.scss";
 
 interface Project {
   title: string;
   description: string;
   tags: string[];
+  image: string;
   link?: string;
   repo?: string;
 }
 
 const projects: Project[] = [
   {
-    title: "Project One",
+    title: "Trailhead",
     description:
-      "A short description of the project. Explain what it does, the problem it solves, and your role in building it.",
-    tags: ["React", "TypeScript", "SCSS"],
+      "A route-planning app for hikers with offline maps and elevation profiles. Placeholder — swap in your real project.",
+    tags: ["React", "TypeScript", "MapLibre"],
+    image: "/projects/1.jpg",
     link: "#",
     repo: "#",
   },
   {
-    title: "Project Two",
+    title: "Tidewatch",
     description:
-      "A short description of the project. Replace this placeholder with your real project details.",
-    tags: ["Node.js", "Vite"],
+      "A minimalist dashboard for coastal weather and tide forecasts. Replace with a project of your own.",
+    tags: ["React", "Node.js", "API"],
+    image: "/projects/2.jpg",
     link: "#",
     repo: "#",
   },
   {
-    title: "Project Three",
+    title: "Basecamp",
     description:
-      "A short description of the project. Add screenshots, links and highlights that show off your work.",
-    tags: ["React", "API"],
+      "A component library and design system built for calm, accessible interfaces. Placeholder content.",
+    tags: ["SCSS", "Vite", "Storybook"],
+    image: "/projects/3.jpg",
     repo: "#",
   },
 ];
@@ -38,30 +43,55 @@ function Projects() {
   return (
     <section id="projects" className="projects">
       <div className="container">
-        <h2 className="section-title">Projects</h2>
+        <Reveal>
+          <h2 className="section-title">
+            <span className="section-title__eyebrow">Selected work</span>
+            Projects &amp; showcases
+          </h2>
+          <p className="section-intro">
+            A handful of things I've built. These are placeholders for now —
+            ready for your real projects.
+          </p>
+        </Reveal>
+
         <div className="projects__grid">
-          {projects.map((project) => (
-            <article key={project.title} className="card">
-              <h3 className="card__title">{project.title}</h3>
-              <p className="card__desc">{project.description}</p>
-              <ul className="card__tags">
-                {project.tags.map((tag) => (
-                  <li key={tag}>{tag}</li>
-                ))}
-              </ul>
-              <div className="card__links">
-                {project.repo && (
-                  <a href={project.repo} target="_blank" rel="noreferrer">
-                    Code
-                  </a>
-                )}
-                {project.link && (
-                  <a href={project.link} target="_blank" rel="noreferrer">
-                    Live
-                  </a>
-                )}
+          {projects.map((project, i) => (
+            <Reveal
+              key={project.title}
+              as="article"
+              className="project-card"
+              delay={i * 100}
+            >
+              <div
+                className="project-card__media"
+                style={{ backgroundImage: `url("${project.image}")` }}
+              >
+                <span className="project-card__badge" aria-hidden="true">
+                  ▲
+                </span>
               </div>
-            </article>
+              <div className="project-card__body">
+                <h3 className="project-card__title">{project.title}</h3>
+                <p className="project-card__desc">{project.description}</p>
+                <ul className="project-card__tags">
+                  {project.tags.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+                <div className="project-card__links">
+                  {project.repo && (
+                    <a href={project.repo} target="_blank" rel="noreferrer">
+                      Code
+                    </a>
+                  )}
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noreferrer">
+                      Live demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

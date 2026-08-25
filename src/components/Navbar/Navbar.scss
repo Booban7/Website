@@ -1,41 +1,85 @@
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
-  background: rgba(15, 17, 21, 0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
+    height: 72px;
+  }
+
+  &--scrolled {
+    background: rgba(246, 250, 251, 0.72);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(210, 224, 226, 0.9), var(--shadow);
   }
 
   &__brand {
-    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
     color: var(--text);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+  }
+
+  &__mark {
+    color: var(--accent);
+    font-size: 0.85rem;
   }
 
   &__nav {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.75rem;
 
     a {
       color: var(--text-muted);
       font-size: 0.95rem;
+      font-weight: 500;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.2s ease;
+      }
 
       &:hover {
         color: var(--text);
+
+        &::after {
+          width: 100%;
+        }
       }
     }
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 720px) {
   .navbar__nav {
     gap: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .navbar__nav a {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar__nav a:nth-child(3),
+  .navbar__nav a:nth-child(4) {
+    display: none;
   }
 }

@@ -3,13 +3,25 @@ import "./Hero.scss";
 function Hero() {
   return (
     <section id="top" className="hero">
+      {/* Layered misty scenery. Drop a photo at /public/hero.jpg to use your own. */}
+      <div className="hero__scene" aria-hidden="true">
+        <div className="hero__photo" />
+        <div className="hero__ridge hero__ridge--back" />
+        <div className="hero__ridge hero__ridge--mid" />
+        <div className="hero__ridge hero__ridge--front" />
+        <div className="hero__fog hero__fog--1" />
+        <div className="hero__fog hero__fog--2" />
+        <div className="mist-layer" />
+      </div>
+
       <div className="container hero__inner">
-        <p className="hero__eyebrow">Hi, my name is</p>
-        <h1 className="hero__title">Robin Davoust</h1>
-        <h2 className="hero__subtitle">I build things for the web.</h2>
-        <p className="hero__text">
-          I'm a developer passionate about creating clean, accessible and
-          performant digital experiences. Welcome to my corner of the internet.
+        <p className="hero__eyebrow">Developer · Hiker · Explorer</p>
+        <h1 className="hero__title">
+          Robin Davoust
+        </h1>
+        <p className="hero__subtitle">
+          I build calm, thoughtful software — the same way I like my mornings on
+          the trail: clear, quiet, and heading somewhere worthwhile.
         </p>
         <div className="hero__actions">
           <a className="btn" href="#projects">
@@ -20,6 +32,10 @@ function Hero() {
           </a>
         </div>
       </div>
+
+      <a href="#about" className="hero__scroll" aria-label="Scroll to about">
+        <span />
+      </a>
     </section>
   );
 }

@@ -1,0 +1,91 @@
+.experience {
+  &__timeline {
+    position: relative;
+    margin-left: 0.5rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(var(--accent-soft), var(--border));
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding: 0 0 2.5rem 2.5rem;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  &__marker {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 4px rgba(61, 125, 128, 0.12);
+  }
+
+  &__content {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    box-shadow: var(--shadow);
+  }
+
+  &__period {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  &__role {
+    font-size: 1.2rem;
+    margin: 0.35rem 0 0.75rem;
+  }
+
+  &__company {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  &__desc {
+    color: var(--text-muted);
+    margin-bottom: 0.9rem;
+  }
+
+  &__highlights {
+    display: grid;
+    gap: 0.4rem;
+
+    li {
+      position: relative;
+      padding-left: 1.4rem;
+      color: var(--text);
+      font-size: 0.92rem;
+
+      &::before {
+        content: "▲";
+        position: absolute;
+        left: 0;
+        top: 1px;
+        font-size: 0.7rem;
+        color: var(--accent-soft);
+      }
+    }
+  }
+}

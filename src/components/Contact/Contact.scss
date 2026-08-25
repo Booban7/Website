@@ -1,18 +1,42 @@
 .contact {
-  background: var(--bg-alt);
+  position: relative;
   text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(70% 120% at 50% 120%, rgba(127, 168, 172, 0.4), transparent 60%),
+    linear-gradient(180deg, var(--bg-alt), var(--bg));
 
   &__inner {
-    max-width: 560px;
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    margin: 0 auto;
+  }
 
-    .section-title::after {
-      margin-left: auto;
-      margin-right: auto;
-    }
+  &__title {
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    margin: 0.75rem 0 1rem;
   }
 
   &__text {
     color: var(--text-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem;
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+
+    a {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
   }
 }
