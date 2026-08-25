@@ -1,0 +1,18 @@
+.contact {
+  background: var(--bg-alt);
+  text-align: center;
+
+  &__inner {
+    max-width: 560px;
+
+    .section-title::after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__text {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+}

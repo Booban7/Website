@@ -1,0 +1,41 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(15, 17, 21, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  &__brand {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 1.05rem;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+
+      &:hover {
+        color: var(--text);
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__nav {
+    gap: 1rem;
+  }
+}

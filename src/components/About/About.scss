@@ -1,0 +1,35 @@
+.about {
+  background: var(--bg-alt);
+
+  &__text {
+    max-width: 680px;
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__skills {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.5rem 1.5rem;
+    margin-top: 1rem;
+
+    li {
+      position: relative;
+      padding-left: 1.25rem;
+      color: var(--text);
+      font-family: monospace;
+      font-size: 0.9rem;
+
+      &::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+    }
+  }
+}

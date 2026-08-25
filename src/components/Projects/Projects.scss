@@ -1,0 +1,57 @@
+.projects {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  &__desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    flex: 1;
+  }
+
+  &__tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+
+    li {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: var(--bg-alt);
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
