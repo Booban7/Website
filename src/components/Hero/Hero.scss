@@ -6,105 +6,56 @@
   overflow: hidden;
   isolation: isolate;
 
-  &__scene {
+  &__vignette {
     position: absolute;
     inset: 0;
-    z-index: -1;
-    background: linear-gradient(180deg, #cfe3e6 0%, #dfeaec 45%, var(--bg) 100%);
-  }
-
-  /* Optional real photo: place file at /public/hero.jpg */
-  &__photo {
-    position: absolute;
-    inset: 0;
-    background-image: url("/hero.jpg");
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    animation: none;
-  }
-
-  /* CSS mountain ridges (soft, misty silhouettes) */
-  &__ridge {
-    position: absolute;
-    left: -5%;
-    right: -5%;
-    bottom: 0;
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-
-    &--back {
-      height: 46%;
-      background: #a9c6ca;
-      opacity: 0.55;
-      transform: scaleX(1.4);
-    }
-
-    &--mid {
-      height: 38%;
-      left: -20%;
-      right: 30%;
-      background: #7fa8ac;
-      opacity: 0.6;
-    }
-
-    &--front {
-      height: 32%;
-      left: 25%;
-      right: -20%;
-      background: #5a878b;
-      opacity: 0.65;
-    }
-  }
-
-  &__fog {
-    position: absolute;
-    left: -20%;
-    right: -20%;
-    height: 40%;
+    z-index: 0;
     background: radial-gradient(
-      60% 100% at 50% 100%,
-      rgba(246, 250, 251, 0.9),
-      transparent 70%
+      120% 90% at 50% 30%,
+      transparent 40%,
+      color-mix(in srgb, var(--bg) 75%, transparent) 100%
     );
-    filter: blur(6px);
-
-    &--1 {
-      bottom: 12%;
-      animation: drift 26s ease-in-out infinite alternate;
-    }
-
-    &--2 {
-      bottom: 30%;
-      opacity: 0.7;
-      animation: drift 34s ease-in-out infinite alternate-reverse;
-    }
   }
 
   &__inner {
-    max-width: 720px;
-    padding-top: 72px;
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    padding-top: 76px;
   }
 
   &__eyebrow {
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: var(--accent);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 0 16px var(--glow);
   }
 
   &__title {
-    font-size: clamp(3rem, 9vw, 5.5rem);
+    font-size: clamp(3rem, 9vw, 5.75rem);
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-shadow: 0 0 40px var(--glow);
   }
 
   &__subtitle {
-    margin: 1.5rem 0 2.5rem;
-    font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: clamp(1.25rem, 3vw, 1.9rem);
+    color: var(--text);
+    margin-top: 1rem;
+  }
+
+  &__text {
+    margin: 1.25rem 0 2.5rem;
+    font-size: 1.15rem;
     color: var(--text-muted);
-    max-width: 560px;
+    max-width: 580px;
   }
 
   &__actions {
@@ -118,12 +69,14 @@
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 2;
     width: 26px;
     height: 42px;
-    border: 2px solid var(--accent-soft);
+    border: 2px solid var(--accent);
     border-radius: 999px;
     display: flex;
     justify-content: center;
+    box-shadow: 0 0 16px -2px var(--glow);
 
     span {
       width: 4px;
@@ -133,15 +86,6 @@
       background: var(--accent);
       animation: scrollDot 1.8s ease-in-out infinite;
     }
-  }
-}
-
-@keyframes drift {
-  from {
-    transform: translateX(-4%);
-  }
-  to {
-    transform: translateX(4%);
   }
 }
 
@@ -160,7 +104,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__fog,
   .hero__scroll span {
     animation: none;
   }

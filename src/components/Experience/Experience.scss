@@ -10,7 +10,7 @@
       top: 8px;
       bottom: 8px;
       width: 2px;
-      background: linear-gradient(var(--accent-soft), var(--border));
+      background: linear-gradient(var(--accent), var(--border));
     }
   }
 
@@ -32,11 +32,12 @@
     border-radius: 50%;
     background: var(--surface);
     border: 3px solid var(--accent);
-    box-shadow: 0 0 0 4px rgba(61, 125, 128, 0.12);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent),
+      0 0 14px var(--glow);
   }
 
   &__content {
-    background: var(--surface);
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1.5rem 1.75rem;
@@ -44,23 +45,27 @@
   }
 
   &__period {
-    font-size: 0.78rem;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--accent);
   }
 
   &__role {
     font-size: 1.2rem;
+    letter-spacing: 0.03em;
     margin: 0.35rem 0 0.75rem;
   }
 
   &__company {
     color: var(--text-muted);
     font-family: var(--font-body);
-    font-weight: 500;
+    font-style: italic;
     font-size: 1rem;
+    text-transform: none;
+    letter-spacing: 0;
   }
 
   &__desc {
@@ -74,17 +79,16 @@
 
     li {
       position: relative;
-      padding-left: 1.4rem;
+      padding-left: 1.5rem;
       color: var(--text);
-      font-size: 0.92rem;
+      font-size: 0.95rem;
 
       &::before {
-        content: "▲";
+        content: "⚔";
         position: absolute;
         left: 0;
-        top: 1px;
-        font-size: 0.7rem;
-        color: var(--accent-soft);
+        top: 0;
+        color: var(--accent);
       }
     }
   }

@@ -1,26 +1,29 @@
+import { useAlignment } from "../../context/AlignmentContext";
+import { content } from "../../content/copy";
+import Particles from "../Particles/Particles";
 import Reveal from "../Reveal/Reveal";
 import "./Contact.scss";
 
 const socials = [
   { label: "GitHub", href: "https://github.com/Booban7" },
   { label: "LinkedIn", href: "#" },
-  { label: "Email", href: "mailto:hello@example.com" },
+  { label: "Raven Post", href: "mailto:hello@example.com" },
 ];
 
 function Contact() {
+  const { alignment } = useAlignment();
+  const copy = content[alignment ?? "good"].contact;
+
   return (
     <section id="contact" className="contact">
-      <div className="mist-layer" aria-hidden="true" />
+      <Particles count={18} />
       <div className="container">
         <Reveal className="contact__inner">
-          <span className="section-title__eyebrow">Say hello</span>
-          <h2 className="contact__title">Let's find the next trail together</h2>
-          <p className="contact__text">
-            Whether it's a project, an opportunity, or just a good conversation
-            about mountains and code — my inbox is always open.
-          </p>
+          <span className="section-title__eyebrow">{copy.eyebrow}</span>
+          <h2 className="contact__title">{copy.title}</h2>
+          <p className="contact__text">{copy.text}</p>
           <a className="btn" href="mailto:hello@example.com">
-            Get in touch
+            {copy.cta}
           </a>
           <ul className="contact__socials">
             {socials.map((s) => (

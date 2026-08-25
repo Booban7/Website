@@ -1,24 +1,34 @@
-# Robin Davoust — Portfolio
+# Robin Davoust — RPG Portfolio
 
-A personal portfolio with a **misty mountain & ocean** nature-hiking theme,
-built with React, TypeScript, Vite and SCSS.
+An RPG-themed personal portfolio. Before entering, visitors stand at a
+crossroads and **choose their path — Good or Evil**. That choice reshapes the
+entire site: color theme, typography accents, copy, and ambient effects all
+shift to reflect the chosen alignment.
 
-## Sections
+## How it works
 
-- **Hero** — full-screen misty scene (CSS layered mountains + drifting fog)
-- **About** — bio with a small photo gallery
-- **Skills** — grouped technologies
-- **Experience** — work history timeline
-- **Projects** — showcase cards
-- **Contact** — call to action + social links
+- A full-screen **split-screen selection gate** greets first-time visitors.
+- Choosing **The Radiant Path** (good) or **The Shadow Path** (evil) sets a
+  `data-alignment` attribute on `<html>` that drives all theming via CSS custom
+  properties, and swaps section copy from a content dictionary.
+- The choice is stored in `localStorage`, so it's remembered between visits.
+- A **Change Path** control (in the navbar and footer) returns to the
+  crossroads to choose again.
+
+## Themes
+
+| Path   | Mood                         | Palette                          |
+| ------ | ---------------------------- | -------------------------------- |
+| Good   | Radiant paladin, light       | Gold, ivory, holy blue, glow     |
+| Evil   | Shadow warlock, dark         | Crimson, obsidian, violet, ember |
 
 ## Tech stack
 
-- [React 19](https://react.dev/)
+- [React 19](https://react.dev/) + Context for alignment state
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vite.dev/)
 - [SCSS](https://sass-lang.com/)
-- Google Fonts — Fraunces (headings) & Inter (body)
+- Google Fonts — Cinzel (headings) & EB Garamond (body)
 
 ## Getting started
 
@@ -34,23 +44,22 @@ npm run lint      # lint
 
 ```
 src/
-├── components/      # Navbar, Hero, About, Skills, Experience, Projects, Contact, Footer, Reveal
-├── hooks/           # useInView — scroll-reveal animation hook
-├── App.tsx          # Composes the page sections
-├── main.tsx         # App entry point
-└── index.scss       # Global styles, design tokens, misty theme
+├── components/       # AlignmentGate, Navbar, Hero, About, Skills, Experience,
+│                     # Projects, Contact, Footer, Particles, Reveal
+├── context/          # AlignmentContext — choice state + persistence
+├── content/          # copy.ts — all good/evil text in one place
+├── hooks/            # useInView — scroll-reveal animation hook
+├── App.tsx           # Gate vs. site routing based on alignment
+├── main.tsx          # App entry (wrapped in AlignmentProvider)
+└── index.scss        # Global styles, dual theme tokens, particles
 ```
 
-## Adding your own content
+## Customizing
 
-- **Text & data:** edit the arrays and copy inside each component in
-  `src/components/` (bio, skills, experience, projects, links, email).
-- **Images:** the site ships with misty gradient placeholders. Add your own
-  photos under `public/` — see [`public/README.md`](public/README.md) for the
-  expected file names and sizes. After adding `public/hero.jpg`, set the
-  `.hero__photo` opacity to `1` in `src/components/Hero/Hero.scss`.
-
-## Theming
-
-Colors, fonts, spacing and radii are defined as CSS custom properties at the top
-of `src/index.scss` (`:root`). Adjust the palette there to change the whole mood.
+- **Text:** edit `src/content/copy.ts` — every good/evil headline, tagline and
+  section blurb lives there.
+- **Colors / fonts:** adjust the `[data-alignment="good"]` and
+  `[data-alignment="evil"]` token blocks at the top of `src/index.scss`.
+- **Data:** skills, experience, and projects arrays live in their respective
+  component files under `src/components/`.
+- **Images:** see [`public/README.md`](public/README.md).

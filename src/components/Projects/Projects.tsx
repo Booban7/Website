@@ -1,3 +1,5 @@
+import { useAlignment } from "../../context/AlignmentContext";
+import { content } from "../../content/copy";
 import Reveal from "../Reveal/Reveal";
 import "./Projects.scss";
 
@@ -12,27 +14,27 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Trailhead",
+    title: "Aetherforge",
     description:
-      "A route-planning app for hikers with offline maps and elevation profiles. Placeholder — swap in your real project.",
+      "A route-planning artifact with offline maps and elevation lore. Placeholder — swap in your real project.",
     tags: ["React", "TypeScript", "MapLibre"],
     image: "/projects/1.jpg",
     link: "#",
     repo: "#",
   },
   {
-    title: "Tidewatch",
+    title: "Stormglass",
     description:
-      "A minimalist dashboard for coastal weather and tide forecasts. Replace with a project of your own.",
+      "A scrying dashboard for weather and tides across the realm. Replace with a creation of your own.",
     tags: ["React", "Node.js", "API"],
     image: "/projects/2.jpg",
     link: "#",
     repo: "#",
   },
   {
-    title: "Basecamp",
+    title: "The Codex",
     description:
-      "A component library and design system built for calm, accessible interfaces. Placeholder content.",
+      "A component library and design grimoire built for elegant, accessible interfaces. Placeholder content.",
     tags: ["SCSS", "Vite", "Storybook"],
     image: "/projects/3.jpg",
     repo: "#",
@@ -40,18 +42,18 @@ const projects: Project[] = [
 ];
 
 function Projects() {
+  const { alignment } = useAlignment();
+  const copy = content[alignment ?? "good"].projects;
+
   return (
     <section id="projects" className="projects">
       <div className="container">
         <Reveal>
           <h2 className="section-title">
-            <span className="section-title__eyebrow">Selected work</span>
-            Projects &amp; showcases
+            <span className="section-title__eyebrow">{copy.eyebrow}</span>
+            {copy.title}
           </h2>
-          <p className="section-intro">
-            A handful of things I've built. These are placeholders for now —
-            ready for your real projects.
-          </p>
+          <p className="section-intro">{copy.intro}</p>
         </Reveal>
 
         <div className="projects__grid">
@@ -67,7 +69,7 @@ function Projects() {
                 style={{ backgroundImage: `url("${project.image}")` }}
               >
                 <span className="project-card__badge" aria-hidden="true">
-                  ▲
+                  {alignment === "evil" ? "☠" : "✦"}
                 </span>
               </div>
               <div className="project-card__body">
@@ -81,12 +83,12 @@ function Projects() {
                 <div className="project-card__links">
                   {project.repo && (
                     <a href={project.repo} target="_blank" rel="noreferrer">
-                      Code
+                      Grimoire
                     </a>
                   )}
                   {project.link && (
                     <a href={project.link} target="_blank" rel="noreferrer">
-                      Live demo
+                      Behold
                     </a>
                   )}
                 </div>

@@ -1,7 +1,7 @@
 .footer {
   border-top: 1px solid var(--border);
   padding: 2.5rem 0;
-  background: var(--bg-alt);
+  background: color-mix(in srgb, var(--bg-alt) 80%, transparent);
 
   &__inner {
     display: flex;
@@ -9,28 +9,60 @@
     justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
   }
 
   &__brand {
     font-family: var(--font-heading);
     font-weight: 600;
+    letter-spacing: 0.06em;
     color: var(--text);
 
     span {
       color: var(--accent);
-      font-size: 0.8rem;
+      text-shadow: 0 0 12px var(--glow);
     }
+  }
+
+  &__note {
+    font-style: italic;
   }
 
   &__links {
     display: flex;
+    align-items: center;
     gap: 1.5rem;
+
+    a {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  }
+
+  &__switch {
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 14px -2px var(--glow);
+    }
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 620px) {
   .footer__inner {
     justify-content: center;
     text-align: center;

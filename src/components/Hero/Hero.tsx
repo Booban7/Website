@@ -1,39 +1,33 @@
+import { useAlignment } from "../../context/AlignmentContext";
+import { content } from "../../content/copy";
+import Particles from "../Particles/Particles";
 import "./Hero.scss";
 
 function Hero() {
+  const { alignment } = useAlignment();
+  const copy = content[alignment ?? "good"].hero;
+
   return (
     <section id="top" className="hero">
-      {/* Layered misty scenery. Drop a photo at /public/hero.jpg to use your own. */}
-      <div className="hero__scene" aria-hidden="true">
-        <div className="hero__photo" />
-        <div className="hero__ridge hero__ridge--back" />
-        <div className="hero__ridge hero__ridge--mid" />
-        <div className="hero__ridge hero__ridge--front" />
-        <div className="hero__fog hero__fog--1" />
-        <div className="hero__fog hero__fog--2" />
-        <div className="mist-layer" />
-      </div>
+      <Particles count={28} />
+      <div className="hero__vignette" aria-hidden="true" />
 
       <div className="container hero__inner">
-        <p className="hero__eyebrow">Developer · Hiker · Explorer</p>
-        <h1 className="hero__title">
-          Robin Davoust
-        </h1>
-        <p className="hero__subtitle">
-          I build calm, thoughtful software — the same way I like my mornings on
-          the trail: clear, quiet, and heading somewhere worthwhile.
-        </p>
+        <p className="hero__eyebrow">{copy.eyebrow}</p>
+        <h1 className="hero__title">{copy.name}</h1>
+        <p className="hero__subtitle">{copy.title}</p>
+        <p className="hero__text">{copy.subtitle}</p>
         <div className="hero__actions">
           <a className="btn" href="#projects">
-            View my work
+            {copy.primaryCta}
           </a>
           <a className="btn btn--ghost" href="#contact">
-            Get in touch
+            {copy.secondaryCta}
           </a>
         </div>
       </div>
 
-      <a href="#about" className="hero__scroll" aria-label="Scroll to about">
+      <a href="#about" className="hero__scroll" aria-label="Descend">
         <span />
       </a>
     </section>

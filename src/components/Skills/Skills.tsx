@@ -1,34 +1,36 @@
+import { useAlignment } from "../../context/AlignmentContext";
+import { content } from "../../content/copy";
 import Reveal from "../Reveal/Reveal";
 import "./Skills.scss";
 
 const groups = [
   {
-    title: "Languages",
+    title: "Runes & Tongues",
     items: ["TypeScript", "JavaScript", "HTML", "CSS / SCSS", "SQL"],
   },
   {
-    title: "Frameworks & Libraries",
+    title: "Schools of Magic",
     items: ["React", "Node.js", "Express", "Vite"],
   },
   {
-    title: "Tools & Workflow",
+    title: "Tools of the Trade",
     items: ["Git", "GitHub", "Figma", "Vitest", "CI/CD"],
   },
 ];
 
 function Skills() {
+  const { alignment } = useAlignment();
+  const copy = content[alignment ?? "good"].skills;
+
   return (
     <section id="skills" className="skills">
       <div className="container">
         <Reveal>
           <h2 className="section-title">
-            <span className="section-title__eyebrow">Toolkit</span>
-            Skills &amp; technologies
+            <span className="section-title__eyebrow">{copy.eyebrow}</span>
+            {copy.title}
           </h2>
-          <p className="section-intro">
-            The gear I carry — the tools and technologies I reach for to build
-            reliable, enjoyable products.
-          </p>
+          <p className="section-intro">{copy.intro}</p>
         </Reveal>
 
         <div className="skills__grid">

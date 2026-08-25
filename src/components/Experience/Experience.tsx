@@ -1,3 +1,5 @@
+import { useAlignment } from "../../context/AlignmentContext";
+import { content } from "../../content/copy";
 import Reveal from "../Reveal/Reveal";
 import "./Experience.scss";
 
@@ -11,53 +13,53 @@ interface Role {
 
 const roles: Role[] = [
   {
-    company: "Summit Labs",
-    title: "Frontend Developer",
+    company: "Summit Keep",
+    title: "Frontend Champion",
     period: "2023 — Present",
     description:
-      "Building and maintaining customer-facing web applications with a focus on performance and accessibility.",
+      "Leading the charge on customer-facing web applications, wielding performance and accessibility as my weapons.",
     highlights: [
-      "Led a redesign that improved load times by 40%",
-      "Introduced a reusable component library",
+      "Led a redesign that cut load times by 40%",
+      "Raised a reusable component library from the ground",
     ],
   },
   {
-    company: "Coastline Studio",
-    title: "Web Developer",
+    company: "Coastline Guild",
+    title: "Web Artificer",
     period: "2021 — 2023",
     description:
-      "Delivered responsive marketing sites and internal tools for a range of clients.",
+      "Delivered responsive strongholds and internal tools for a host of clients across the realm.",
     highlights: [
-      "Shipped 15+ client projects end to end",
-      "Mentored two junior developers",
+      "Shipped 15+ campaigns end to end",
+      "Mentored two apprentices to journeyman rank",
     ],
   },
   {
-    company: "Freelance",
-    title: "Developer & Designer",
+    company: "Free Company",
+    title: "Wandering Developer",
     period: "2019 — 2021",
     description:
-      "Partnered with small businesses to bring their ideas online, from concept to launch.",
+      "Took contracts across many lands, bringing ideas to life from the first spark to the final banner.",
     highlights: [
-      "Built long-term relationships with recurring clients",
-      "Handled design, development and deployment",
+      "Forged lasting bonds with recurring patrons",
+      "Commanded design, development and deployment alone",
     ],
   },
 ];
 
 function Experience() {
+  const { alignment } = useAlignment();
+  const copy = content[alignment ?? "good"].experience;
+
   return (
     <section id="experience" className="experience">
       <div className="container">
         <Reveal>
           <h2 className="section-title">
-            <span className="section-title__eyebrow">The trail so far</span>
-            Work experience
+            <span className="section-title__eyebrow">{copy.eyebrow}</span>
+            {copy.title}
           </h2>
-          <p className="section-intro">
-            A few of the stops along the way — the teams and projects that
-            shaped how I build today.
-          </p>
+          <p className="section-intro">{copy.intro}</p>
         </Reveal>
 
         <div className="experience__timeline">

@@ -1,21 +1,26 @@
+import { useAlignment } from "../../context/AlignmentContext";
+import { content } from "../../content/copy";
 import "./Footer.scss";
 
 function Footer() {
+  const { alignment, reset } = useAlignment();
+  const copy = content[alignment ?? "good"];
+
   return (
     <footer className="footer">
       <div className="container footer__inner">
         <p className="footer__brand">
-          <span aria-hidden="true">▲</span> Robin Davoust
+          <span aria-hidden="true">{alignment === "evil" ? "☠" : "✦"}</span>{" "}
+          Robin Davoust
         </p>
         <p className="footer__note">
-          © {new Date().getFullYear()} · Built with React &amp; a love for the
-          outdoors
+          © {new Date().getFullYear()} · {copy.footerNote}
         </p>
         <div className="footer__links">
-          <a href="https://github.com/Booban7" target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-          <a href="#top">Back to top ↑</a>
+          <button type="button" className="footer__switch" onClick={reset}>
+            Change Path
+          </button>
+          <a href="#top">Ascend ↑</a>
         </div>
       </div>
     </footer>

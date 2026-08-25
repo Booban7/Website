@@ -1,37 +1,30 @@
+import { useAlignment } from "../../context/AlignmentContext";
+import { content } from "../../content/copy";
 import Reveal from "../Reveal/Reveal";
 import "./About.scss";
 
 const gallery = [
-  { src: "/gallery/1.jpg", caption: "Sunrise ridge" },
-  { src: "/gallery/2.jpg", caption: "Fjord morning" },
-  { src: "/gallery/3.jpg", caption: "Above the clouds" },
-  { src: "/gallery/4.jpg", caption: "Coastal trail" },
+  { src: "/gallery/1.jpg", caption: "The proving grounds" },
+  { src: "/gallery/2.jpg", caption: "A hard-won victory" },
+  { src: "/gallery/3.jpg", caption: "The long road" },
+  { src: "/gallery/4.jpg", caption: "At the gates" },
 ];
 
 function About() {
+  const { alignment } = useAlignment();
+  const copy = content[alignment ?? "good"].about;
+
   return (
     <section id="about" className="about">
       <div className="container about__grid">
         <Reveal className="about__text">
           <h2 className="section-title">
-            <span className="section-title__eyebrow">About me</span>
-            A little about the person behind the code
+            <span className="section-title__eyebrow">{copy.eyebrow}</span>
+            {copy.title}
           </h2>
-          <p>
-            I'm a developer who cares about the details — clean code,
-            thoughtful interfaces, and experiences that feel effortless. I
-            approach building software the way I approach a long hike: pick a
-            good direction, pace yourself, and enjoy the view along the way.
-          </p>
-          <p>
-            When I step away from the keyboard you'll usually find me outdoors,
-            chasing misty mornings in the mountains or walking the coastline.
-            Those quiet moments are where my best ideas tend to show up.
-          </p>
-          <p>
-            I'm always curious, always learning, and happiest when I'm turning a
-            rough idea into something people genuinely enjoy using.
-          </p>
+          {copy.paragraphs.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
         </Reveal>
 
         <Reveal className="about__gallery" delay={120}>
