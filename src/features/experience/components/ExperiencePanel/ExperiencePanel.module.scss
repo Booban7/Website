@@ -1,0 +1,78 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.grid {
+  display: grid;
+  gap: $space * 4;
+
+  @include md-up {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+.colTitle {
+  @include heading(1.25rem);
+  margin-bottom: $space * 2;
+}
+
+.sub {
+  display: block;
+  font-family: $font-body;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $stone;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 20px;
+  border-left: 2px dashed rgba(47, 93, 71, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: $space * 3;
+}
+
+.entry {
+  position: relative;
+}
+
+.marker {
+  position: absolute;
+  left: -29px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  background: $birch-light;
+  border: 2px solid $pine;
+  transform: rotate(45deg);
+  box-shadow: 0 0 0 2px $birch-light;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+
+.title {
+  @include heading(1.1rem);
+}
+
+.date {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $gold;
+}
+
+.place {
+  color: $fjord;
+  font-weight: 600;
+}
+
+.desc {
+  margin-top: 4px;
+  color: $stone;
+}

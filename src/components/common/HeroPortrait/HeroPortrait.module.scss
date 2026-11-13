@@ -1,0 +1,92 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+$size: 200px;
+
+.hero {
+  position: relative;
+  width: $size;
+  height: $size;
+  margin: 24px auto 28px;
+  flex-shrink: 0;
+}
+
+.ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 10px;
+  // Birch ring with carved knot dashes
+  background:
+    repeating-conic-gradient(from 0deg, rgba(31, 58, 46, 0.55) 0 2deg, transparent 2deg 15deg),
+    radial-gradient(circle, $birch-light 60%, #ece7da 100%);
+  border: 3px solid $pine;
+  box-shadow:
+    0 0 0 3px $gold,
+    0 12px 30px rgba(31, 58, 46, 0.25);
+}
+
+.portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid $pine;
+  background: linear-gradient(180deg, #cfe6f2, #dfe8d5);
+}
+
+.gems {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gemSlot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: rotate(var(--angle)) translateX(calc(#{$size} / 2 + 2px)) rotate(calc(var(--angle) * -1));
+  margin: -11px 0 0 -11px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  background: $birch-light;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px $gold;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.shield {
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, $pine-light, $pine);
+  color: $birch-light;
+  clip-path: path('M0 0 H58 V34 C58 52 29 64 29 64 C29 64 0 52 0 34Z');
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+}
+
+.lvLabel {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  margin-top: -6px;
+}
+
+.lv {
+  font-family: $font-heading;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: $gold-light;
+}

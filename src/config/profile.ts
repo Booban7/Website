@@ -5,19 +5,19 @@ import type { Profile, Skill } from '@/types/profile.types'
 export const profile: Profile = {
   name: 'Robin Davoust',
   role: 'Frontend Developer',
-  location: 'Midgar, Sector 7',
+  location: 'Stockholm, Sweden',
   careerStartDate: '2021-07-01',
   intro:
-    'A frontend developer who crafts fast, accessible and playful interfaces. ' +
-    'I turn designs into pixel-perfect experiences with React, TypeScript and a love for detail.',
+    'Hail, traveler! I am a frontend developer who crafts fast, accessible and playful interfaces. ' +
+    'Draw a card from your hand to explore my journey.',
   portrait,
 }
 
 export const skills: Skill[] = [
-  { name: 'React', materia: 'green' },
-  { name: 'TypeScript', materia: 'green' },
-  { name: 'SCSS', materia: 'yellow' },
-  { name: 'Accessibility', materia: 'blue' },
-  { name: 'Testing', materia: 'purple' },
-  { name: 'Design Systems', materia: 'red' },
+  { name: 'React', gem: 'fjord' },
+  { name: 'TypeScript', gem: 'fjord' },
+  { name: 'SCSS', gem: 'berry' },
+  { name: 'Accessibility', gem: 'moss' },
+  { name: 'Testing', gem: 'amber' },
+  { name: 'Design Systems', gem: 'frost' },
 ]

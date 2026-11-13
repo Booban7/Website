@@ -1,34 +1,37 @@
-// FF7-inspired palette
-$window-top: #2a3fb8;
-$window-bottom: #060a3a;
-$window-border-light: #e8e8f0;
-$window-border-dark: #6b6f86;
+// Bright Nordic forest palette
+$birch: #f5f1e6;
+$birch-light: #fbf9f3;
+$moss-pale: #dfe8d5;
+$felt: #c9d8b6;
+$felt-dark: #a9bf93;
+$ash-light: #e9dcc3;
+$ash: #d9c7a3;
+$ash-dark: #b89d72;
 
-$text: #f2f2f2;
-$text-muted: #b9bdd6;
-$text-shadow: #1a1a1a;
-$accent: #7fd6ff;
-$highlight: #ffe066;
+$pine: #2f5d47;
+$pine-light: #4f7d63;
+$spruce: #1f3a2e;
+$stone: #6b7266;
+$fjord: #4a7fa7;
+$fjord-light: #7fb0d3;
+$gold: #c9a24a;
+$gold-light: #e6c97a;
 
-$hp-bar: #4fd2ff;
-$exp-start: #2ccd5a;
-$exp-end: #c5f56a;
-
-$materia: (
-  'green': #3ee26a,
-  'yellow': #ffd93b,
-  'purple': #b46cff,
-  'blue': #3fa7ff,
-  'red': #ff4d4d,
+$gems: (
+  'amber': #e0a23a,
+  'moss': #6aa84f,
+  'fjord': #4a7fa7,
+  'berry': #b5475e,
+  'frost': #8fc9d9,
 );
 
-$bg: #04040f;
+$font-heading: 'Marcellus', 'Times New Roman', serif;
+$font-body: 'Nunito', system-ui, sans-serif;
 
-$font-heading: 'Press Start 2P', monospace;
-$font-body: 'VT323', monospace;
-
-$radius: 10px;
+$radius: 14px;
 $space: 8px;
-$max-width: 1100px;
+
+$card-w: 150px;
+$card-h: 210px;
 
 $bp-md: 768px;

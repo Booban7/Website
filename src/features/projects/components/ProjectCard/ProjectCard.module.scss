@@ -2,14 +2,16 @@
 @use '@/styles/mixins' as *;
 
 .card {
+  @include card-frame;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: $space * 2;
-  width: 100%;
-  transition: transform 0.15s;
+  gap: $space * 1.5;
+  padding: $space * 2.5;
+  transition: transform 0.2s, box-shadow 0.2s;
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px) rotate(-0.5deg);
   }
 
   @include reduced-motion {
@@ -21,14 +23,21 @@
   }
 }
 
+.top {
+  margin: (-$space * 2.5) (-$space * 2.5) 0;
+  padding: $space * 1.5 $space * 2.5;
+  background: linear-gradient(180deg, $pine-light, $pine);
+  border-radius: 10px 10px 0 0;
+}
+
 .name {
-  @include heading(0.75rem);
-  color: $highlight;
+  @include heading(1.15rem);
+  color: $birch-light;
 }
 
 .desc {
-  margin: 0;
   flex: 1;
+  color: $stone;
 }
 
 .tech {
@@ -37,20 +46,27 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: $space $space * 2;
+  gap: 6px 14px;
 }
 
 .links {
   display: flex;
-  gap: $space * 3;
+  gap: $space * 1.5;
 
   a {
-    @include heading(0.6rem);
-    color: $text;
+    flex: 1;
+    text-align: center;
+    padding: 6px 10px;
+    border: 2px solid $pine;
+    border-radius: 999px;
+    color: $pine;
+    font-weight: 700;
     text-decoration: none;
+    transition: background 0.15s, color 0.15s;
 
     &:hover {
-      color: $highlight;
+      background: $pine;
+      color: $birch-light;
     }
   }
 }

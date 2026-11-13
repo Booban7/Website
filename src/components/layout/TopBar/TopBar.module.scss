@@ -1,0 +1,45 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+
+  @include md-up {
+    padding: 14px 32px;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.emblem {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: $pine;
+  color: $gold-light;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 0 0 2px $birch, 0 0 0 4px $gold;
+}
+
+.name {
+  @include heading(1.2rem);
+}
+
+.role {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $stone;
+}

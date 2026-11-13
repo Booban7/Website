@@ -1,10 +1,6 @@
-export const SECTIONS = [
-  { id: 'hero', label: 'Status' },
-  { id: 'experience', label: 'Quest Log' },
-  { id: 'projects', label: 'Key Items' },
-  { id: 'contact', label: 'Save' },
-] as const
+import type { CardId } from '@/types/card.types'
 
-export type SectionId = (typeof SECTIONS)[number]['id']
+export const CARD_IDS: readonly CardId[] = ['hero', 'experience', 'projects', 'contact']
 
 export const SOUND_STORAGE_KEY = 'portfolio:sound-enabled'
+export const AMBIENCE_STORAGE_KEY = 'portfolio:ambience-enabled'

@@ -2,17 +2,17 @@ export interface Profile {
   name: string
   role: string
   location: string
-  /** ISO date (YYYY-MM-DD) – drives the EXP bar */
+  /** ISO date (YYYY-MM-DD) – drives the level / runestone EXP */
   careerStartDate: string
   intro: string
   portrait: string
 }
 
-export type MateriaColor = 'green' | 'yellow' | 'purple' | 'blue' | 'red'
+export type GemColor = 'amber' | 'moss' | 'fjord' | 'berry' | 'frost'
 
 export interface Skill {
   name: string
-  materia: MateriaColor
+  gem: GemColor
 }
 
 export interface ContactLink {

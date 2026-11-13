@@ -1,0 +1,65 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.panel {
+  @include parchment;
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: $space * 3;
+
+  @include md-up {
+    padding: $space * 4 $space * 5;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $space * 1.5;
+}
+
+.rune {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid $gold;
+  color: $pine;
+  font-size: 1.3rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.title {
+  @include heading(1.6rem);
+  flex: 1;
+
+  &:focus {
+    outline: none;
+  }
+
+  @include md-up {
+    font-size: 2rem;
+  }
+}
+
+.close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid $pine;
+  background: $birch-light;
+  color: $pine;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: $moss-pale;
+  }
+}
+
+.band {
+  @include knotwork-band;
+  margin: $space * 2 0 $space * 3;
+}

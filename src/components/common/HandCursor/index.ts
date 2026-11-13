@@ -1,1 +1,0 @@
-export { HandCursor } from './HandCursor'

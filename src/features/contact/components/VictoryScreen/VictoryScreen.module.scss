@@ -4,76 +4,80 @@
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 90;
+  z-index: 100;
   display: grid;
   place-items: center;
   padding: $space * 2;
-  background: rgba(0, 0, 0, 0.55);
-  animation: fade 0.2s ease-out;
+  overflow: hidden;
+  background: radial-gradient(circle, rgba(255, 246, 214, 0.65), rgba(31, 58, 46, 0.45));
   cursor: pointer;
 }
 
-.window {
-  @include ff-window;
-  width: min(420px, 100%);
-  padding: $space * 4;
-  animation: drop 0.35s cubic-bezier(0.2, 1.4, 0.4, 1);
+// Wooden plaque
+.plaque {
+  position: relative;
+  width: min(440px, 100%);
+  padding: $space * 4 $space * 3;
+  text-align: center;
+  border-radius: 20px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(120, 85, 40, 0.1) 0 2px,
+      transparent 2px 11px
+    ),
+    linear-gradient(180deg, #e6c48e, #c99a5b);
+  border: 4px solid #8a6131;
+  box-shadow:
+    inset 0 0 0 3px $gold-light,
+    0 20px 50px rgba(31, 58, 46, 0.35);
 
   &:focus {
     outline: none;
   }
 }
 
-.title {
-  @include heading(1.2rem);
-  margin: 0 0 $space * 3;
-  color: $highlight;
-  text-align: center;
+.runes {
+  display: block;
+  color: #6b4720;
+  letter-spacing: 0.6em;
+  opacity: 0.7;
 }
 
-.rewards {
-  margin: 0 0 $space * 3;
-  display: grid;
-  gap: $space;
+.title {
+  font-family: $font-heading;
+  font-size: 3rem;
+  line-height: 1.1;
+  color: #fff8e2;
+  text-shadow:
+    0 2px 0 #8a6131,
+    0 0 18px rgba(255, 230, 150, 0.9);
+  margin: $space 0;
+}
 
-  div {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px dashed $window-border-dark;
-    padding-bottom: 4px;
-  }
-
-  dt {
-    color: $accent;
-  }
-
-  dd {
-    margin: 0;
-  }
+.sub {
+  font-weight: 700;
+  color: #4a3015;
 }
 
 .note {
-  margin: 0;
-  color: $text-muted;
-  text-align: center;
+  margin-top: $space;
+  font-size: 0.9rem;
+  color: #5d3f1d;
 }
 
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
+.goldLeaf {
+  position: absolute;
+  top: -20px;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, $gold-light, $gold);
+  border-radius: 0 70% 0 70%;
+  animation: leafFall 2.8s ease-in forwards;
 }
 
-@keyframes drop {
-  from {
-    transform: translateY(-40px) scale(0.9);
-    opacity: 0;
-  }
-}
-
-@include reduced-motion {
-  .overlay,
-  .window {
-    animation: none;
+@keyframes leafFall {
+  to {
+    transform: translate(30px, 110vh) rotate(540deg);
   }
 }

@@ -1,0 +1,36 @@
+@use 'sass:color';
+@use '@/styles/variables' as *;
+
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gem {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 1px rgba(31, 58, 46, 0.3));
+}
+
+.facet {
+  fill: rgba(255, 255, 255, 0.45);
+}
+
+.shine {
+  fill: rgba(255, 255, 255, 0.18);
+}
+
+@each $name, $c in $gems {
+  .#{$name} .base {
+    fill: $c;
+    stroke: color.adjust($c, $lightness: -18%);
+    stroke-width: 1;
+  }
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}

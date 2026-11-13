@@ -1,0 +1,67 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.layout {
+  display: grid;
+  gap: $space * 3;
+  align-items: center;
+
+  @include md-up {
+    grid-template-columns: 260px 1fr;
+    gap: $space * 5;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: $space * 2.5;
+}
+
+.role {
+  @include heading(1.15rem);
+  color: $pine;
+}
+
+.dot {
+  color: $gold;
+}
+
+.bubble {
+  position: relative;
+  background: #fff;
+  border: 2px solid $pine;
+  border-radius: 16px;
+  padding: $space * 2 $space * 2.5;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 0 rgba(47, 93, 71, 0.12);
+
+  // Tail pointing at the portrait
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -11px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-left: 2px solid $pine;
+    border-top: 2px solid $pine;
+    transform: translateX(-50%) rotate(45deg);
+
+    @include md-up {
+      left: -11px;
+      top: 28px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space $space * 2.5;
+}

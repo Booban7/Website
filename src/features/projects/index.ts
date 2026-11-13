@@ -1,1 +1,1 @@
-export { ProjectsSection } from './components/ProjectsSection/ProjectsSection'
+export { ProjectsPanel } from './components/ProjectsPanel/ProjectsPanel'

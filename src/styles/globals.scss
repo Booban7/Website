@@ -7,71 +7,58 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-
-  @include reduced-motion {
-    scroll-behavior: auto;
-  }
+html,
+body,
+#root {
+  height: 100%;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
-  background:
-    radial-gradient(ellipse at 50% -10%, rgba(42, 63, 184, 0.35), transparent 60%),
-    radial-gradient(circle at 80% 100%, rgba(62, 226, 106, 0.08), transparent 50%),
-    $bg;
-  color: $text;
+  background: $birch;
+  color: $spruce;
   font-family: $font-body;
-  font-size: 1.35rem;
-  line-height: 1.35;
-  -webkit-font-smoothing: none;
-}
-
-// Subtle CRT scanlines
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 3px);
-  z-index: 100;
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  overflow: clip;
 }
 
 img {
   max-width: 100%;
   display: block;
-  image-rendering: pixelated;
 }
 
 a {
-  color: $accent;
+  color: $fjord;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: $pine;
+  }
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
+  margin: 0;
+  @include heading;
+}
+
+p {
   margin: 0;
 }
 
-:focus-visible {
-  outline: 3px dashed $highlight;
-  outline-offset: 3px;
+button {
+  font: inherit;
 }
 
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 8px;
-  z-index: 200;
-
-  &:focus {
-    left: 8px;
-    @include ff-window;
-    padding: 8px 16px;
-  }
+:focus-visible {
+  outline: 3px solid $fjord;
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 .visually-hidden {
@@ -81,4 +68,19 @@ h3 {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 200;
+  padding: 8px 16px;
+  background: $birch-light;
+  border: 2px solid $pine;
+  border-radius: 8px;
+
+  &:focus {
+    left: 8px;
+  }
 }
