@@ -1,0 +1,79 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: $space * 1.5 $space * 2;
+}
+
+.nav {
+  @include ff-window;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $space $space * 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space * 2;
+  flex-wrap: wrap;
+}
+
+.menuButton {
+  @include heading(0.65rem);
+  background: none;
+  border: none;
+  color: $text;
+  cursor: pointer;
+  padding: $space 0;
+
+  @include md-up {
+    display: none;
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  order: 3;
+
+  &.open {
+    display: flex;
+  }
+
+  @include md-up {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    order: 0;
+    gap: $space * 2;
+  }
+}
+
+.link {
+  @include heading(0.65rem);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: $text;
+  text-decoration: none;
+  padding: $space 0;
+
+  &.active {
+    color: $highlight;
+  }
+
+  &:focus-visible {
+    outline-offset: 0;
+  }
+}
+
+.cursorSlot {
+  display: inline-flex;
+  width: 34px;
+}

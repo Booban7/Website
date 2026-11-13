@@ -1,0 +1,56 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $space * 2;
+  width: 100%;
+  transition: transform 0.15s;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  @include reduced-motion {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.name {
+  @include heading(0.75rem);
+  color: $highlight;
+}
+
+.desc {
+  margin: 0;
+  flex: 1;
+}
+
+.tech {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space $space * 2;
+}
+
+.links {
+  display: flex;
+  gap: $space * 3;
+
+  a {
+    @include heading(0.6rem);
+    color: $text;
+    text-decoration: none;
+
+    &:hover {
+      color: $highlight;
+    }
+  }
+}

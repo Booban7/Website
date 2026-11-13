@@ -1,0 +1,79 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: $space * 2;
+  background: rgba(0, 0, 0, 0.55);
+  animation: fade 0.2s ease-out;
+  cursor: pointer;
+}
+
+.window {
+  @include ff-window;
+  width: min(420px, 100%);
+  padding: $space * 4;
+  animation: drop 0.35s cubic-bezier(0.2, 1.4, 0.4, 1);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.title {
+  @include heading(1.2rem);
+  margin: 0 0 $space * 3;
+  color: $highlight;
+  text-align: center;
+}
+
+.rewards {
+  margin: 0 0 $space * 3;
+  display: grid;
+  gap: $space;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed $window-border-dark;
+    padding-bottom: 4px;
+  }
+
+  dt {
+    color: $accent;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.note {
+  margin: 0;
+  color: $text-muted;
+  text-align: center;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes drop {
+  from {
+    transform: translateY(-40px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@include reduced-motion {
+  .overlay,
+  .window {
+    animation: none;
+  }
+}
