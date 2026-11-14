@@ -41,3 +41,10 @@
   margin-top: $space * 5;
   color: $text-muted;
 }
+
+.empty {
+  font-family: $font-heading;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: $text-muted;
+}

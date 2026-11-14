@@ -1,13 +1,13 @@
-import portrait from '@/assets/images/portrait.svg'
+import portrait from '@/assets/images/robin.jpg'
 import type { Profile } from '@/types/profile.types'
 
-// TODO: replace placeholder content with your own
 export const profile: Profile = {
   name: 'Robin Davoust',
   role: 'Frontend Developer',
-  location: 'Stockholm, Sweden',
+  location: 'Gothenburg, Sweden',
   careerStartDate: '2021-07-01',
-  intro: 'I build calm, accessible and fast interfaces for the web — with care for the details people feel but rarely notice.',
+  intro:
+    "I'm a frontend developer based in Gothenburg, building for the web since 2021. I'm dedicated to my craft and care about the details. When I'm not coding, you'll find me hiking with my dog Zelda.",
   portrait,
   farewell: 'Thank you for visiting — I look forward to hearing from you.',
   signature: 'Robin',
