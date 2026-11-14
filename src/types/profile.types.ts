@@ -6,7 +6,6 @@ export interface Profile {
   careerStartDate: string
   intro: string
   portrait: string
-  skills: string[]
   /** Closing line shown at the end of the page */
   farewell: string
   /** Optional signature under the farewell, e.g. "Robin" */

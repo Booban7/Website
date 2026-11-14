@@ -11,5 +11,4 @@ export const profile: Profile = {
   portrait,
   farewell: 'Thank you for visiting — I look forward to hearing from you.',
   signature: 'Robin',
-  skills: ['React', 'TypeScript', 'SCSS', 'Accessibility', 'Testing', 'Design Systems'],
 }

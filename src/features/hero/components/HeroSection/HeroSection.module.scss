@@ -58,11 +58,6 @@
   font-size: 1.125rem;
 }
 
-.skills {
-  margin-top: $space * 3;
-  font-size: 0.875rem;
-  color: $text-muted;
-}
 
 // Keep hero text readable over the aurora
 :global([data-theme='dark']) .content {

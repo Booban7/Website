@@ -13,10 +13,6 @@ export function HeroSection() {
           </h1>
           <p className={styles.role}>{profile.role}</p>
           <p className={styles.intro}>{profile.intro}</p>
-          <p className={styles.skills}>
-            <span className="visually-hidden">Skills: </span>
-            {profile.skills.join(' · ')}
-          </p>
         </div>
       </div>
       <ScrollHint />
