@@ -26,11 +26,11 @@ export function BoardDecor() {
 function Pines() {
   const pine = 'M0 -60 L16 -32 L8 -32 L22 -12 L10 -12 L26 8 L-26 8 L-10 -12 L-22 -12 L-8 -32 L-16 -32 Z'
   return (
-    <g stroke="#1f3a2e" strokeWidth="3" strokeLinejoin="round">
-      <path transform="translate(40 158) scale(1.5)" d={pine} fill="#4f7d63" />
-      <path transform="translate(40 158) scale(1.5)" d="M-2 8 h4 v12 h-4z" fill="#1f3a2e" />
-      <path transform="translate(98 178) scale(1)" d={pine} fill="#2f5d47" />
-      <path transform="translate(98 178) scale(1)" d="M-2 8 h4 v12 h-4z" fill="#1f3a2e" />
+    <g stroke="#1d1d1b" strokeWidth="2.5" strokeLinejoin="round">
+      <path transform="translate(40 158) scale(1.5)" d={pine} fill="none" />
+      <path transform="translate(40 158) scale(1.5)" d="M-2 8 h4 v12 h-4z" fill="#1d1d1b" />
+      <path transform="translate(98 178) scale(1)" d={pine} fill="none" />
+      <path transform="translate(98 178) scale(1)" d="M-2 8 h4 v12 h-4z" fill="#1d1d1b" />
     </g>
   )
 }

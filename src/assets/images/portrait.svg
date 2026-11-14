@@ -1,15 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
-  <rect width="32" height="32" fill="#1b2470"/>
-  <!-- spiky hair -->
-  <path fill="#f3d36b" d="M8 6h2v2h2V4h2v2h2V3h2v3h2V4h2v4h2v2h2v4h-2v-2H8v2H6v-4h2z"/>
+  <rect width="32" height="32" fill="#ece8df"/>
+  <!-- hair -->
+  <path fill="#1d1d1b" d="M8 6h2v2h2V4h2v2h2V3h2v3h2V4h2v4h2v2h2v4h-2v-2H8v2H6v-4h2z"/>
   <!-- face -->
-  <rect x="10" y="12" width="12" height="10" fill="#f1c9a0"/>
-  <rect x="12" y="15" width="2" height="2" fill="#2b6fff"/>
-  <rect x="18" y="15" width="2" height="2" fill="#2b6fff"/>
-  <rect x="14" y="19" width="4" height="1" fill="#a0634a"/>
+  <rect x="10" y="12" width="12" height="10" fill="#fdfcf9"/>
+  <rect x="12" y="15" width="2" height="2" fill="#1d1d1b"/>
+  <rect x="18" y="15" width="2" height="2" fill="#1d1d1b"/>
+  <rect x="14" y="19" width="4" height="1" fill="#6f6c66"/>
   <!-- body -->
-  <rect x="8" y="22" width="16" height="10" fill="#3a2f6b"/>
-  <rect x="14" y="22" width="4" height="10" fill="#6b5fa8"/>
-  <rect x="6" y="24" width="4" height="8" fill="#7a7f96"/>
-  <rect x="22" y="24" width="4" height="8" fill="#7a7f96"/>
+  <rect x="8" y="22" width="16" height="10" fill="#1d1d1b"/>
+  <rect x="15" y="22" width="2" height="10" fill="#b8933f"/>
 </svg>

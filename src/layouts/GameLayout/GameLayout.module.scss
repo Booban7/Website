@@ -8,9 +8,5 @@
   overflow: hidden;
   // `clip` also prevents programmatic scrolling when a peeking card gets focus
   overflow: clip;
-  background:
-    radial-gradient(ellipse at 10% 0%, rgba(255, 250, 225, 0.9), transparent 50%),
-    radial-gradient(ellipse at 100% 100%, $moss-pale, transparent 60%),
-    radial-gradient(ellipse at 0% 100%, $moss-pale, transparent 50%),
-    $birch;
+  background: $paper;
 }

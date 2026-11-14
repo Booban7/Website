@@ -51,10 +51,10 @@
   place-items: center;
   border-radius: 50%;
   border: $line-thin + 1 solid $ink;
-  background: $gold;
+  background: $birch-light;
   color: $ink;
   cursor: pointer;
-  box-shadow: 2px 3px 0 rgba(31, 58, 46, 0.25);
+  box-shadow: 2px 3px 0 rgba(29, 29, 27, 0.25);
   transition: transform 0.15s;
 
   svg {

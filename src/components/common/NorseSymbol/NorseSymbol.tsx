@@ -103,7 +103,7 @@ const Ravens = (
       <path d={ravenPath} transform="translate(-2 0)" />
       <path d={ravenPath} transform="translate(2 0) scale(-1 1)" />
     </g>
-    <g fill="#fbf9f3" stroke="none">
+    <g fill="#fdfcf9" stroke="none">
       <circle cx="-13" cy="-14" r="2" />
       <circle cx="13" cy="-14" r="2" />
     </g>
@@ -132,7 +132,7 @@ const ShieldAxes = (
       <path d="M-42 -42 Q-50 -26 -36 -20 L-26 -30 Q-32 -44 -42 -42Z" />
       <path d="M42 -42 Q50 -26 36 -20 L26 -30 Q32 -44 42 -42Z" />
     </g>
-    <circle r="30" fill="#fbf9f3" strokeWidth="5" />
+    <circle r="30" fill="#fdfcf9" strokeWidth="5" />
     <path d="M-29 -8 H29 M-29 8 H29" strokeWidth="2.5" />
     <circle r="9" fill="currentColor" stroke="none" />
   </>

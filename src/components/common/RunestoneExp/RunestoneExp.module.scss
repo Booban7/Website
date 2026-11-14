@@ -41,7 +41,7 @@
   display: grid;
   place-items: center;
   border-radius: 45% 45% 20% 20%;
-  background: #d8d6cf;
+  background: $birch-light;
   border: 3px solid $ink;
   color: $ink;
   font-weight: 800;
@@ -53,16 +53,14 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: #7cbf5a;
+    background: $gold;
     transform-origin: bottom;
     transform: scaleY(var(--fill));
     animation: grow 0.6s ease-out both;
     animation-delay: var(--delay);
   }
 
-  &.lit {
-    box-shadow: inset 0 0 0 2px $gold;
-  }
+
 }
 
 .meta {

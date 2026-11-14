@@ -11,7 +11,7 @@ $size: 200px;
   flex-shrink: 0;
 }
 
-// Bold interlace ring: ink, gold band with ink knots, ink
+// Interlace ring: ink ticks on paper
 .ring {
   width: 100%;
   height: 100%;
@@ -19,10 +19,10 @@ $size: 200px;
   padding: 14px;
   background:
     radial-gradient(circle, transparent 0 62%, $ink 62% 64%, transparent 64%),
-    repeating-conic-gradient(from 0deg, $ink 0 5deg, $gold 5deg 15deg),
-    $gold;
+    repeating-conic-gradient(from 0deg, $ink 0 2deg, $birch-light 2deg 12deg),
+    $birch-light;
   border: $line solid $ink;
-  box-shadow: 5px 6px 0 rgba(31, 58, 46, 0.18);
+  box-shadow: 5px 6px 0 rgba(29, 29, 27, 0.18);
 }
 
 .portrait {
@@ -31,7 +31,7 @@ $size: 200px;
   object-fit: cover;
   border-radius: 50%;
   border: $line solid $ink;
-  background: $moss-pale;
+  background: $paper-dim;
 }
 
 .gems {
@@ -69,12 +69,12 @@ $size: 200px;
   align-items: center;
   justify-content: center;
   background:
-    linear-gradient(90deg, transparent 32%, rgba(31, 58, 46, 0.35) 32% 34%, transparent 34% 66%, rgba(31, 58, 46, 0.35) 66% 68%, transparent 68%),
+    linear-gradient(90deg, transparent 32%, rgba(29, 29, 27, 0.35) 32% 34%, transparent 34% 66%, rgba(29, 29, 27, 0.35) 66% 68%, transparent 68%),
     $pine;
   border: $line solid $ink;
   box-shadow:
-    inset 0 0 0 3px $gold,
-    3px 4px 0 rgba(31, 58, 46, 0.25);
+    inset 0 0 0 3px $birch-light,
+    3px 4px 0 rgba(29, 29, 27, 0.25);
   color: $birch-light;
 }
 

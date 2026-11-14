@@ -37,7 +37,7 @@ export function PreferenceToggles() {
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 19C5 10 11 5 20 4c-1 9-6 15-15 15z" fill="currentColor" opacity={ambienceEnabled ? 1 : 0.35} />
-          <path d="M5 19L14 10" stroke="#fbf9f3" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M5 19L14 10" stroke="#fdfcf9" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       </button>
     </div>

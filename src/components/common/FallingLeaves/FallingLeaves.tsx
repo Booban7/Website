@@ -3,7 +3,7 @@ import { usePreferences } from '@/context/preferencesContextValue'
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 import styles from './FallingLeaves.module.scss'
 
-const LEAF_COLORS = ['#a9c97f', '#6aa84f', '#e0a23a', '#c9d8b6', '#d9b56a']
+const LEAF_COLORS = ['#1d1d1b', '#b8933f']
 
 // Deterministic pseudo-random so leaves are stable between renders
 const rand = (seed: number) => {

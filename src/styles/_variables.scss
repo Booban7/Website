@@ -1,31 +1,38 @@
-// Bright Nordic forest palette
-$birch: #f5f1e6;
-$birch-light: #fbf9f3;
-$moss-pale: #dfe8d5;
-$felt: #c9d8b6;
-$felt-dark: #a9bf93;
-$ash-light: #e9dcc3;
-$ash: #d9c7a3;
-$ash-dark: #b89d72;
+// Minimal palette: ink, paper, one gold accent.
+// Legacy names are kept as aliases so components stay unchanged.
+$ink: #1d1d1b;
+$paper: #f7f5f0;
+$paper-dim: #ece8df;
+$muted: #6f6c66;
+$gold: #b8933f;
+$gold-light: #d9bd7a;
 
-$pine: #2f5d47;
-$pine-light: #4f7d63;
-$spruce: #1f3a2e;
-$ink: #1f3a2e;
-$line: 4px;
+$birch: $paper;
+$birch-light: #fdfcf9;
+$moss-pale: $paper-dim;
+$felt: $paper-dim;
+$felt-dark: $paper-dim;
+$ash-light: $paper;
+$ash: $paper-dim;
+$ash-dark: $muted;
+
+$pine: $ink;
+$pine-light: $ink;
+$spruce: $ink;
+$stone: $muted;
+$fjord: $ink;
+$fjord-light: $ink;
+
+$line: 3px;
 $line-thin: 2px;
-$stone: #6b7266;
-$fjord: #4a7fa7;
-$fjord-light: #7fb0d3;
-$gold: #c9a24a;
-$gold-light: #e6c97a;
 
+// Skill badges: all monochrome, only the rune differs
 $gems: (
-  'amber': #e0a23a,
-  'moss': #6aa84f,
-  'fjord': #4a7fa7,
-  'berry': #b5475e,
-  'frost': #8fc9d9,
+  'amber': $birch-light,
+  'moss': $birch-light,
+  'fjord': $birch-light,
+  'berry': $birch-light,
+  'frost': $birch-light,
 );
 
 $font-heading: 'Marcellus', 'Times New Roman', serif;

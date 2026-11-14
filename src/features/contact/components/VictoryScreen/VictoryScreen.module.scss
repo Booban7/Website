@@ -9,7 +9,7 @@
   place-items: center;
   padding: $space * 2;
   overflow: hidden;
-  background: rgba(245, 241, 230, 0.9);
+  background: rgba(247, 245, 240, 0.92);
   cursor: pointer;
 }
 
@@ -31,7 +31,7 @@
   height: 190px;
   color: $ink;
   margin-bottom: -34px;
-  filter: drop-shadow(5px 6px 0 rgba(31, 58, 46, 0.2));
+  filter: drop-shadow(5px 6px 0 rgba(29, 29, 27, 0.2));
 
   // Paint the shield face gold, keep ink lines
   circle:first-of-type {
