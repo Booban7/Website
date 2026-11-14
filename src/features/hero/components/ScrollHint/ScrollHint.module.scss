@@ -17,6 +17,8 @@
   color: $deep-sea;
   text-decoration: none;
   transition: opacity 0.4s ease;
+  // Fades in after the hero text (opacity only: transform is used for centring)
+  animation: hint-in 0.7s ease-out 600ms backwards;
 
   &:hover .line {
     opacity: 0.9;
@@ -65,6 +67,12 @@
   animation: slide 2s ease-in-out infinite;
 }
 
+@keyframes hint-in {
+  from {
+    opacity: 0;
+  }
+}
+
 @keyframes slide {
   0% {
     transform: translateY(0);
@@ -90,6 +98,7 @@
 
   .hint {
     transition: none;
+    animation: none;
   }
 }
 

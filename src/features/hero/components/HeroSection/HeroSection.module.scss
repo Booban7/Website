@@ -58,6 +58,42 @@
   font-size: 1.125rem;
 }
 
+// ---------- Entrance: portrait, name, role, intro rise in one after another ----------
+// `backwards` fill: hidden only until each item starts, normal styles afterwards.
+.portrait,
+.name,
+.role,
+.intro {
+  animation: hero-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+.name {
+  animation-delay: 120ms;
+}
+
+.role {
+  animation-delay: 240ms;
+}
+
+.intro {
+  animation-delay: 360ms;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait,
+  .name,
+  .role,
+  .intro {
+    animation: none;
+  }
+}
 
 // Keep hero text readable over the aurora
 :global([data-theme='dark']) .content {

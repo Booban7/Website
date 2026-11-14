@@ -5,7 +5,8 @@
 .aurora,
 .reflection,
 .stars,
-.moon {
+.moon,
+.meteors {
   display: none;
 
   :global([data-theme='dark']) & {
@@ -310,12 +311,68 @@
   }
 }
 
-// ---------- Reduced motion: still aurora, no twinkle ----------
+// ---------- Shooting stars ----------
+
+.meteors {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+// A thin streak, bright at its head (left end), travelling down-left.
+// Invisible for most of the loop, then a ~1s streak.
+.meteor {
+  position: absolute;
+  top: 12%;
+  left: 68%;
+  width: 110px;
+  height: 1.5px;
+  border-radius: 1px;
+  background: linear-gradient(to right, rgb(240 246 255 / 0.95), rgb(240 246 255 / 0));
+  opacity: 0;
+  animation: meteor 37s linear infinite;
+  animation-delay: 6s;
+}
+
+.meteorB {
+  top: 22%;
+  left: 34%;
+  width: 90px;
+  animation-duration: 53s;
+  animation-delay: 21s;
+}
+
+@keyframes meteor {
+  0%,
+  97% {
+    transform: rotate(-20deg) translateX(0);
+    opacity: 0;
+  }
+
+  97.4% {
+    opacity: 1;
+  }
+
+  99.2% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(-20deg) translateX(-300px);
+    opacity: 0;
+  }
+}
+
+// ---------- Reduced motion: still aurora, no twinkle, no shooting stars ----------
 
 @media (prefers-reduced-motion: reduce) {
   .band,
   .glow,
   .twinkle {
     animation: none;
+  }
+
+  .meteors {
+    display: none !important;
   }
 }

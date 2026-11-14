@@ -124,3 +124,25 @@ a {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+// ---------- Reveal on scroll (see hooks/useReveal.ts) ----------
+// Hidden state only once the hook has marked the page ready, so content is
+// always visible without JS or with reduced motion.
+html[data-reveal='ready'] [data-reveal] {
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  &:not([data-revealed]) {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-reveal='ready'] [data-reveal] {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -67,15 +67,27 @@ export function LofotenScene() {
         {/* Sea, reflections and glitter */}
         <rect x="0" y="400" width="1440" height="120" fill="url(#scene-sea)" />
         <g clipPath="url(#scene-water)">
-          <g transform="translate(0 800) scale(1 -1)" opacity="0.2">
-            <Sun />
-            <path d={MID} className={styles.near} />
-            <path d={NEAR} className={styles.near} />
-            <Cabin />
+          {/* Wrapper drifts gently so the reflection reads as a slow swell */}
+          <g className={styles.swell}>
+            <g transform="translate(0 800) scale(1 -1)" opacity="0.2">
+              <Sun />
+              <path d={MID} className={styles.near} />
+              <path d={NEAR} className={styles.near} />
+              <Cabin />
+            </g>
           </g>
           <g className={styles.glitter}>
-            {GLITTER.map(([dy, w]) => (
-              <rect key={dy} x={-w} y={400 + dy} width={w * 2} height="2" rx="1" />
+            {GLITTER.map(([dy, w], i) => (
+              <rect
+                key={dy}
+                x={-w}
+                y={400 + dy}
+                width={w * 2}
+                height="2"
+                rx="1"
+                className={styles.shimmer}
+                style={{ animationDuration: `${3 + (i % 4) * 0.8}s`, animationDelay: `${-i * 0.7}s` }}
+              />
             ))}
           </g>
         </g>
@@ -114,11 +126,11 @@ function Cabin({ withSmoke = false }: { withSmoke?: boolean }) {
       <rect x="246" y="378" width="9" height="15" className={styles.door} />
       <g className={styles.windowGlow}>
         <rect x="232" y="373" width="11" height="11" rx="2" />
-        <rect x="263" y="373" width="11" height="11" rx="2" />
+        <rect x="263" y="373" width="11" height="11" rx="2" className={styles.lightSwitch} />
       </g>
       <g className={styles.window}>
         <rect x="234" y="375" width="7" height="7" />
-        <rect x="265" y="375" width="7" height="7" />
+        <rect x="265" y="375" width="7" height="7" className={styles.lightSwitch} />
       </g>
       {withSmoke && (
         <g className={styles.smoke}>

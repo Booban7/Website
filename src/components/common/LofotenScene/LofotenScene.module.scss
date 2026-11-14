@@ -224,3 +224,66 @@
 :global([data-theme='dark']) .smoke {
   opacity: 0.65;
 }
+
+// ---------- Subtle ambient motion (all off with reduced motion) ----------
+
+// Light mode: each sun streak on the water slowly brightens and dims.
+// Durations/delays are set per streak inline so they never pulse together.
+.shimmer {
+  animation: shimmer 4s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// The reflection drifts a couple of units sideways, like a slow swell
+.swell {
+  animation: swell 8s ease-in-out infinite alternate;
+}
+
+@keyframes swell {
+  from {
+    transform: translateX(-2px);
+  }
+
+  to {
+    transform: translateX(2px);
+  }
+}
+
+// Dark mode: someone switches the right-hand light off for a few seconds
+:global([data-theme='dark']) .lightSwitch {
+  animation: light-switch 45s linear infinite;
+}
+
+@keyframes light-switch {
+  0%,
+  70% {
+    opacity: 1;
+  }
+
+  70.7%,
+  78% {
+    opacity: 0;
+  }
+
+  78.7%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer,
+  .swell,
+  :global([data-theme='dark']) .lightSwitch {
+    animation: none;
+  }
+}

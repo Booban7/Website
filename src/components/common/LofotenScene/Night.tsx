@@ -83,6 +83,11 @@ export function NightSky() {
           <circle cx="20" cy="20" r="14" mask="url(#moon-crescent)" />
         </svg>
       </div>
+      {/* Two shooting stars on loops of different lengths, so they feel random */}
+      <div className={styles.meteors} aria-hidden="true">
+        <span className={styles.meteor} />
+        <span className={`${styles.meteor} ${styles.meteorB}`} />
+      </div>
     </>
   )
 }

@@ -10,7 +10,7 @@ const YEAR = new Date().getFullYear()
 export function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.farewell}>
+      <div className={styles.farewell} data-reveal>
         <p className={styles.message}>{profile.farewell}</p>
         {profile.signature && <p className={styles.signature}>— {profile.signature}</p>}
       </div>
