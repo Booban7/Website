@@ -2,37 +2,37 @@
 @use '@/styles/mixins' as *;
 
 .panel {
-  @include parchment;
+  @include ink-frame(10px);
+  @include knot-corners(40px);
   width: min(960px, 100%);
   margin: 0 auto;
   padding: $space * 3;
 
   @include md-up {
-    padding: $space * 4 $space * 5;
+    padding: $space * 4 $space * 6;
   }
 }
 
 .header {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
-  gap: $space * 1.5;
+  gap: $space * 2;
 }
 
-.rune {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  border: 2px solid $gold;
-  color: $pine;
-  font-size: 1.3rem;
-  font-weight: 700;
+.medallion {
+  width: 56px;
+  font-size: 7px;
   flex-shrink: 0;
+
+  @include md-up {
+    width: 68px;
+  }
 }
 
 .title {
-  @include heading(1.6rem);
+  @include heading(1.7rem);
   flex: 1;
 
   &:focus {
@@ -40,26 +40,41 @@
   }
 
   @include md-up {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 }
 
 .close {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
   border-radius: 50%;
-  border: 2px solid $pine;
-  background: $birch-light;
-  color: $pine;
+  border: $line-thin + 1 solid $ink;
+  background: $gold;
+  color: $ink;
   cursor: pointer;
-  transition: background 0.15s;
+  box-shadow: 2px 3px 0 rgba(31, 58, 46, 0.25);
+  transition: transform 0.15s;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
 
   &:hover {
-    background: $moss-pale;
+    transform: rotate(90deg);
+  }
+
+  @include reduced-motion {
+    transition: none;
   }
 }
 
-.band {
-  @include knotwork-band;
+.divider {
+  @include interlace-divider;
   margin: $space * 2 0 $space * 3;
 }

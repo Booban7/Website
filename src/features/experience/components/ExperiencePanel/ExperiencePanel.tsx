@@ -5,7 +5,7 @@ import styles from './ExperiencePanel.module.scss'
 
 export function ExperiencePanel({ onClose }: { onClose: () => void }) {
   return (
-    <Panel id="experience" title="Quest Log" rune="ᚱ" onClose={onClose}>
+    <Panel id="experience" title="Quest Log" symbol="vegvisir" onClose={onClose}>
       <div className={styles.grid}>
         <Timeline title="Battles fought" subtitle="Work experience" items={work} />
         <Timeline title="Wisdom gathered" subtitle="Studies" items={studies} />

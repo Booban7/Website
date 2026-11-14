@@ -8,7 +8,7 @@ import styles from './HeroPanel.module.scss'
 
 export function HeroPanel() {
   return (
-    <Panel id="hero" title={profile.name} rune="ᛟ">
+    <Panel id="hero" title={profile.name} symbol="helmOfAwe">
       <div className={styles.layout}>
         <HeroPortrait
           src={profile.portrait}

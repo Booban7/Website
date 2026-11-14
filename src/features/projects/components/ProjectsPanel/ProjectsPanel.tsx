@@ -8,7 +8,7 @@ const github = contactLinks.find((l) => l.label === 'GitHub')
 
 export function ProjectsPanel({ onClose }: { onClose: () => void }) {
   return (
-    <Panel id="projects" title="Treasure" rune="ᚷ" onClose={onClose}>
+    <Panel id="projects" title="Treasure" symbol="yggdrasil" onClose={onClose}>
       <ul className={styles.grid}>
         {projects.map((p, i) => (
           <li key={p.id} style={{ ['--i' as string]: i }}>

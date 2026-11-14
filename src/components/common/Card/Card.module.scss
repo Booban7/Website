@@ -2,78 +2,85 @@
 @use '@/styles/mixins' as *;
 
 .card {
-  @include card-frame;
+  @include ink-frame(8px);
   width: var(--card-w, #{$card-w});
   height: var(--card-h, #{$card-h});
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 10px 12px;
+  padding: 1em 0.7em 0.8em;
   user-select: none;
   font-size: calc(var(--card-w, #{$card-w}) / 150 * 16px);
 }
 
 .cost {
   position: absolute;
-  top: -0.7em;
+  top: -0.8em;
   left: -0.7em;
-  width: 2.2em;
-  height: 2.2em;
+  width: 2.3em;
+  height: 2.7em;
   display: grid;
   place-items: center;
-  font-family: $font-heading;
-  font-size: 1.05em;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  background: radial-gradient(circle at 35% 30%, $fjord-light, $fjord 60%, #2d5676);
-  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-  z-index: 2;
-}
-
-.art {
-  width: 100%;
-  height: 46%;
-  border-radius: 50% 50% 10px 10px / 40% 40% 10px 10px;
-  overflow: hidden;
-  border: 2px solid $pine;
+  z-index: 3;
 
   svg {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    display: block;
+    filter: drop-shadow(2px 2px 0 rgba(31, 58, 46, 0.25));
+  }
+
+  path {
+    fill: $gold;
+    stroke: $ink;
+    stroke-width: 3;
+    stroke-linejoin: round;
+  }
+
+  span {
+    position: relative;
+    margin-top: -0.25em;
+    font-family: $font-heading;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: $ink;
   }
 }
 
-.rune {
-  margin-top: -0.85em;
-  width: 1.7em;
-  height: 1.7em;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: $birch-light;
-  border: 2px solid $gold;
-  color: $pine;
-  font-size: 0.95em;
-  font-weight: 700;
-  z-index: 1;
+.medallion {
+  width: 76%;
+  font-size: 0.5em;
+  flex-shrink: 0;
 }
 
 .banner {
-  margin-top: 0.2em;
-  width: calc(100% + 16px);
-  padding: 0.25em 0;
-  text-align: center;
-  background: linear-gradient(180deg, $pine-light, $pine);
+  position: relative;
+  margin-top: 0.6em;
+  width: calc(100% + 1.4em);
+  padding: 0.3em 0 0.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+  background: $ink;
   color: $birch-light;
   font-family: $font-heading;
-  font-size: 0.95em;
-  letter-spacing: 0.05em;
-  clip-path: polygon(0 0, 100% 0, 96% 50%, 100% 100%, 0 100%, 4% 50%);
+  font-size: 0.88em;
+  letter-spacing: 0.02em;
+  border-top: 2px solid $gold;
+  border-bottom: 2px solid $gold;
+  white-space: nowrap;
+}
+
+.rune {
+  color: $gold-light;
+  font-family: $font-body;
+  font-weight: 700;
 }
 
 .desc {
-  margin-top: 0.4em;
+  margin-top: 0.5em;
   font-size: 0.72em;
   line-height: 1.35;
   text-align: center;

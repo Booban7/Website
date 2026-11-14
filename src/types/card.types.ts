@@ -1,6 +1,6 @@
 export type CardId = 'hero' | 'experience' | 'projects' | 'contact'
 
-export type CardArt = 'fjord' | 'path' | 'chest' | 'raven'
+export type SymbolName = 'helmOfAwe' | 'vegvisir' | 'yggdrasil' | 'ravens' | 'triquetra' | 'shieldAxes'
 
 export interface CardDefinition {
   id: CardId
@@ -10,5 +10,5 @@ export interface CardDefinition {
   runeName: string
   cost: number
   description: string
-  art: CardArt
+  symbol: SymbolName
 }

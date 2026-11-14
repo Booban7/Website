@@ -1,0 +1,23 @@
+@use '@/styles/variables' as *;
+
+.medallion {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  // Gold ring, ink line, dashed knot band, moss centre
+  background:
+    radial-gradient(circle, #eef3e6 0 66%, $ink 66% 68%, transparent 68.5%),
+    repeating-conic-gradient($ink 0 4deg, $moss-pale 4deg 15deg),
+    $moss-pale;
+  border: 0.35em solid $gold;
+  box-shadow:
+    0 0 0 0.15em $ink,
+    inset 0 0 0 0.15em $ink;
+  color: $ink;
+}
+
+.symbol {
+  width: 82%;
+  height: 82%;
+}

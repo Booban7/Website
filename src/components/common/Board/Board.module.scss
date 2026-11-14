@@ -12,45 +12,40 @@
   }
 }
 
-// Light ash-wood frame with moss felt inset
+// Ash-wood frame with ink outline and flat moss felt
 .table {
   position: relative;
   flex: 1;
   min-height: 0;
-  border-radius: 28px;
+  border-radius: 24px;
   padding: 10px;
   background:
     repeating-linear-gradient(
       92deg,
-      rgba(184, 157, 114, 0.12) 0 2px,
-      transparent 2px 9px,
-      rgba(184, 157, 114, 0.08) 9px 10px,
-      transparent 10px 22px
+      rgba(184, 157, 114, 0.18) 0 2px,
+      transparent 2px 12px
     ),
-    linear-gradient(180deg, $ash-light, $ash);
-  box-shadow:
-    inset 0 2px 0 rgba(255, 255, 255, 0.6),
-    0 10px 30px rgba(31, 58, 46, 0.15);
+    $ash-light;
+  border: $line solid $ink;
+  box-shadow: 6px 8px 0 rgba(31, 58, 46, 0.15);
 
   @include md-up {
-    padding: 16px;
+    padding: 14px;
   }
 
-  // Felt surface + sunbeam
   &::before {
     content: '';
     position: absolute;
     inset: 10px;
-    border-radius: 20px;
+    border-radius: 16px;
     background:
-      linear-gradient(115deg, rgba(255, 250, 225, 0.55) 0%, rgba(255, 250, 225, 0) 35%),
-      radial-gradient(ellipse at center, #d6e3c6 0%, $felt 60%, $felt-dark 100%);
-    box-shadow:
-      inset 0 0 0 2px rgba(47, 93, 71, 0.25),
-      inset 0 6px 20px rgba(31, 58, 46, 0.15);
+      linear-gradient(115deg, rgba(255, 252, 235, 0.5) 0%, rgba(255, 252, 235, 0) 35%),
+      $felt;
+    border: 3px solid $ink;
+    box-shadow: inset 0 0 0 3px $gold;
 
     @include md-up {
-      inset: 16px;
+      inset: 14px;
     }
   }
 }
@@ -60,25 +55,25 @@
   height: 100%;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 24px 8px 40px;
+  padding: 30px 8px 40px;
   perspective: 1200px;
   display: flex;
   flex-direction: column;
 
   @include md-up {
-    padding: 40px 32px 60px;
+    padding: 44px 40px 60px;
   }
 }
 
 .decor {
   position: absolute;
-  inset: 10px;
-  border-radius: 20px;
+  inset: 13px;
+  border-radius: 14px;
   overflow: hidden;
   pointer-events: none;
 
   @include md-up {
-    inset: 16px;
+    inset: 17px;
   }
 }
 
@@ -88,15 +83,36 @@
   left: 50%;
   width: min(70vh, 520px);
   transform: translate(-50%, -50%);
-  color: $pine;
+  color: $ink;
   opacity: 0.08;
+
+  * {
+    stroke-width: 1.5;
+  }
+}
+
+.band {
+  @include interlace-divider(14px);
+  position: absolute;
+  left: 60px;
+  right: 60px;
+  opacity: 0.55;
+}
+
+.bandTop {
+  top: 8px;
+}
+
+.bandBottom {
+  bottom: 8px;
 }
 
 .corner {
   position: absolute;
   bottom: 0;
-  width: 160px;
-  height: 200px;
+  width: 140px;
+  height: 175px;
+  opacity: 0.85;
 }
 
 .cornerLeft {
@@ -108,16 +124,21 @@
   transform: scaleX(-1);
 }
 
-.runes {
+.knot {
   position: absolute;
   top: 10px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  letter-spacing: 1.2em;
-  color: $pine;
-  opacity: 0.25;
-  font-size: 0.85rem;
+  width: 40px;
+  height: 40px;
+  color: $ink;
+  opacity: 0.5;
+}
+
+.knotLeft {
+  left: 12px;
+}
+
+.knotRight {
+  right: 12px;
 }
 
 .landing {
@@ -140,7 +161,7 @@
   height: 80px;
   bottom: -30px;
   border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.7);
+  border: 4px solid rgba(31, 58, 46, 0.35);
   opacity: 0;
   animation: dust 0.5s ease-out 0.45s;
 }

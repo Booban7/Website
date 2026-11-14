@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
+import { NorseSymbol } from '@/components/common/NorseSymbol'
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 import styles from './VictoryScreen.module.scss'
 
@@ -63,12 +64,12 @@ export function VictoryScreen({ onClose, durationMs = 4500 }: VictoryScreenProps
         animate={{ scale: 1, rotate: 0, y: 0 }}
         transition={{ type: 'spring', stiffness: 260, damping: 14 }}
       >
-        <span className={styles.runes} aria-hidden="true">
-          ᛏ ᛊ ᛏ
-        </span>
+        <NorseSymbol name="shieldAxes" className={styles.shield} />
         <p className={styles.title}>Victory!</p>
-        <p className={styles.sub}>A raven takes flight with your message.</p>
-        <p className={styles.note}>Your mail client is opening… I'll get back to you soon.</p>
+        <div className={styles.message}>
+          <p className={styles.sub}>A raven takes flight with your message.</p>
+          <p className={styles.note}>Your mail client is opening… I'll get back to you soon.</p>
+        </div>
       </motion.div>
     </motion.div>,
     document.body,

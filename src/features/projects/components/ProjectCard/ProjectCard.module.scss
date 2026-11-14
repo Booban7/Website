@@ -2,7 +2,7 @@
 @use '@/styles/mixins' as *;
 
 .card {
-  @include card-frame;
+  @include ink-frame(8px);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -26,8 +26,9 @@
 .top {
   margin: (-$space * 2.5) (-$space * 2.5) 0;
   padding: $space * 1.5 $space * 2.5;
-  background: linear-gradient(180deg, $pine-light, $pine);
-  border-radius: 10px 10px 0 0;
+  background: $ink;
+  border-bottom: 3px solid $gold;
+  border-radius: 3px 3px 0 0;
 }
 
 .name {
@@ -57,16 +58,18 @@
     flex: 1;
     text-align: center;
     padding: 6px 10px;
-    border: 2px solid $pine;
-    border-radius: 999px;
-    color: $pine;
-    font-weight: 700;
+    border: 3px solid $ink;
+    border-radius: 6px;
+    background: $gold;
+    color: $ink;
+    font-weight: 800;
+    box-shadow: 2px 3px 0 rgba(31, 58, 46, 0.2);
     text-decoration: none;
     transition: background 0.15s, color 0.15s;
 
     &:hover {
-      background: $pine;
-      color: $birch-light;
+      background: $ink;
+      color: $gold-light;
     }
   }
 }

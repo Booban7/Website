@@ -12,7 +12,7 @@ export function ContactPanel({ onClose }: { onClose: () => void }) {
   const [victory, setVictory] = useState(false)
 
   return (
-    <Panel id="contact" title="Send Message" rune="ᚨ" onClose={onClose}>
+    <Panel id="contact" title="Send Message" symbol="ravens" onClose={onClose}>
       <p className={styles.lead}>
         Want to join the party? Send a raven my way — I read every message.
       </p>

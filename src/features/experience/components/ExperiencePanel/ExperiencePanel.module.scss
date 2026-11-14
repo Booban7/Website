@@ -28,7 +28,7 @@
   list-style: none;
   margin: 0;
   padding: 0 0 0 20px;
-  border-left: 2px dashed rgba(47, 93, 71, 0.35);
+  border-left: 3px solid $ink;
   display: flex;
   flex-direction: column;
   gap: $space * 3;
@@ -40,12 +40,12 @@
 
 .marker {
   position: absolute;
-  left: -29px;
+  left: -30px;
   top: 4px;
   width: 16px;
   height: 16px;
-  background: $birch-light;
-  border: 2px solid $pine;
+  background: $gold;
+  border: 3px solid $ink;
   transform: rotate(45deg);
   box-shadow: 0 0 0 2px $birch-light;
 }
@@ -64,7 +64,7 @@
 .date {
   font-size: 0.85rem;
   font-weight: 700;
-  color: $gold;
+  color: #9a7a2c;
 }
 
 .place {

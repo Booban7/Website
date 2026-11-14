@@ -30,11 +30,11 @@
 .bubble {
   position: relative;
   background: #fff;
-  border: 2px solid $pine;
-  border-radius: 16px;
+  border: 3px solid $ink;
+  border-radius: 10px;
   padding: $space * 2 $space * 2.5;
   font-size: 1.05rem;
-  box-shadow: 0 4px 0 rgba(47, 93, 71, 0.12);
+  box-shadow: 4px 5px 0 rgba(31, 58, 46, 0.15);
 
   // Tail pointing at the portrait
   &::before {
@@ -45,8 +45,8 @@
     width: 18px;
     height: 18px;
     background: #fff;
-    border-left: 2px solid $pine;
-    border-top: 2px solid $pine;
+    border-left: 3px solid $ink;
+    border-top: 3px solid $ink;
     transform: translateX(-50%) rotate(45deg);
 
     @include md-up {

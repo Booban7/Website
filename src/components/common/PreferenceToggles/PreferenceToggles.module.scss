@@ -11,7 +11,8 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  border: 2px solid $pine;
+  border: 3px solid $ink;
+  box-shadow: 2px 3px 0 rgba(31, 58, 46, 0.2);
   background: $birch-light;
   color: $stone;
   cursor: pointer;
@@ -25,8 +26,8 @@
   }
 
   &[aria-pressed='true'] {
-    color: $pine;
-    box-shadow: 0 0 0 2px $gold;
+    color: $ink;
+    background: $gold;
   }
 
   &:hover {
