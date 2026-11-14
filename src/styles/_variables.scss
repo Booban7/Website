@@ -1,12 +1,22 @@
-// Lofoten daylight palette
-$snow: #f8fafb;
-$mist: #e6edf1;
-$fjord: #9fb4c2;
-$slate: #5b6e7b;
-$deep-sea: #2c4250;
-$text: #1f2b33;
-$text-muted: #55636d;
+// Lofoten palette – raw values
+$raw-snow: #f8fafb;
+$raw-mist: #e6edf1;
+$raw-fjord: #9fb4c2;
+$raw-slate: #5b6e7b;
+$raw-deep-sea: #2c4250;
+$raw-text: #1f2b33;
+$raw-text-muted: #55636d;
 $cabin: #b5483a;
+
+// Semantic colours resolve to CSS custom properties so they follow the
+// active theme (see `:root` / `[data-theme='dark']` in globals.scss).
+$snow: var(--c-bg);
+$mist: var(--c-rule);
+$fjord: var(--c-link-underline);
+$slate: var(--c-secondary);
+$deep-sea: var(--c-heading);
+$text: var(--c-text);
+$text-muted: var(--c-text-muted);
 
 $font-heading: 'Cormorant Garamond', Georgia, serif;
 $font-body: 'Inter', system-ui, sans-serif;

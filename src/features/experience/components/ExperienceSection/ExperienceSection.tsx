@@ -25,6 +25,9 @@ function Timeline({ heading, items }: { heading: string; items: TimelineItem[] }
             <div>
               <h4 className={styles.title}>{item.title}</h4>
               <p className={styles.place}>{item.place}</p>
+              {(item.location || item.type) && (
+                <p className={styles.meta}>{[item.location, item.type].filter(Boolean).join(' · ')}</p>
+              )}
               <p className={styles.desc}>{item.description}</p>
             </div>
           </li>

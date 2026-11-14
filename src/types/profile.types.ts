@@ -7,10 +7,19 @@ export interface Profile {
   intro: string
   portrait: string
   skills: string[]
+  /** Closing line shown at the end of the page */
+  farewell: string
+  /** Optional signature under the farewell, e.g. "Robin" */
+  signature?: string
 }
 
 export interface ContactLink {
   label: string
   href: string
   value: string
+}
+
+export interface SkillGroup {
+  group: string
+  items: string[]
 }

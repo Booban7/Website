@@ -1,4 +1,3 @@
-import { LofotenLandscape } from '@/components/common/LofotenLandscape'
 import { profile } from '@/config/profile'
 import styles from './HeroSection.module.scss'
 
@@ -19,7 +18,6 @@ export function HeroSection() {
           </p>
         </div>
       </div>
-      <LofotenLandscape className={styles.landscape} />
     </section>
   )
 }

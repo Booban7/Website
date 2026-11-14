@@ -9,5 +9,7 @@ export const profile: Profile = {
   careerStartDate: '2021-07-01',
   intro: 'I build calm, accessible and fast interfaces for the web — with care for the details people feel but rarely notice.',
   portrait,
+  farewell: 'Thank you for visiting — I look forward to hearing from you.',
+  signature: 'Robin',
   skills: ['React', 'TypeScript', 'SCSS', 'Accessibility', 'Testing', 'Design Systems'],
 }

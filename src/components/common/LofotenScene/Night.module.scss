@@ -1,0 +1,321 @@
+@use '@/styles/variables' as *;
+
+// Night elements are only shown in dark mode. `display: none` also stops
+// their animations in light mode, so they cost nothing there.
+.aurora,
+.reflection,
+.stars,
+.moon {
+  display: none;
+
+  :global([data-theme='dark']) & {
+    display: block;
+  }
+}
+
+// ---------- Aurora ----------
+
+.aurora {
+  position: absolute;
+  inset: 0 0 22% 0;
+  overflow: hidden;
+  // Fade the curtains out towards the top of the screen
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 100%);
+}
+
+.bandWrap {
+  position: absolute;
+  left: -25%;
+  width: 150%;
+  mix-blend-mode: screen;
+}
+
+.wrapGreen {
+  top: 26%;
+  height: 46%;
+  opacity: var(--aurora-green, 0.6);
+}
+
+.wrapGreen2 {
+  top: 38%;
+  height: 34%;
+  left: 5%;
+  width: 110%;
+  opacity: calc(var(--aurora-green, 0.6) * 0.7);
+}
+
+.wrapYg {
+  top: 34%;
+  height: 32%;
+  left: -40%;
+  width: 110%;
+  opacity: var(--aurora-yg, 0.2);
+}
+
+// Main blue/violet curtain (dominant at the end of the page)
+.wrapViolet {
+  top: 22%;
+  height: 50%;
+  opacity: var(--aurora-violet, 0);
+}
+
+// Main red/magenta curtain (dominant in the middle of the page)
+.wrapRed {
+  top: 22%;
+  height: 48%;
+  opacity: var(--aurora-red, 0);
+}
+
+// High, diffuse red layer above the main curtain
+.wrapRedHigh {
+  top: 4%;
+  height: 40%;
+  opacity: calc(var(--aurora-red, 0) * 0.6);
+}
+
+.band {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(16px);
+  transform-origin: 50% 100%;
+  will-change: transform, opacity;
+  // Vertical "rays" inside the curtain + soft elliptical edge
+  mask-image:
+    // Smooth, irregular ray texture (gradients between stops, no hard edges)
+    repeating-linear-gradient(
+      90deg,
+      #000 0px,
+      rgb(0 0 0 / 0.72) 9px,
+      #000 15px,
+      rgb(0 0 0 / 0.8) 27px,
+      rgb(0 0 0 / 0.62) 34px,
+      #000 46px
+    ),
+    radial-gradient(ellipse 50% 55% at 50% 62%, #000 35%, transparent 72%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+// Classic green curtain: yellow-green lower edge, green body, faint red top fringe
+.green {
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    #c8ff6e 7%,
+    #46ff9f 18%,
+    rgb(55 235 150 / 0.55) 48%,
+    rgb(255 90 130 / 0.3) 78%,
+    transparent 100%
+  );
+  animation-name: flowA;
+  animation-duration: 26s;
+}
+
+.green2 {
+  background: linear-gradient(to top, transparent 0%, #9dff7a 8%, #3cf5a0 22%, rgb(60 230 170 / 0.4) 55%, transparent 100%);
+  animation-name: flowB;
+  animation-duration: 34s;
+}
+
+.yg {
+  background: linear-gradient(to top, transparent 0%, #e3ff7a 10%, #a6ff5c 26%, rgb(120 255 120 / 0.35) 60%, transparent 100%);
+  animation-name: flowC;
+  animation-duration: 21s;
+}
+
+// Blue/violet curtain: blue lower edge, violet body
+.violet {
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    #6fb6ff 8%,
+    #5a8cff 20%,
+    #7a6dff 38%,
+    rgb(170 100 255 / 0.5) 65%,
+    transparent 100%
+  );
+  animation-name: flowB;
+  animation-duration: 36s;
+  animation-delay: -12s;
+}
+
+// Red/magenta curtain: pink-magenta lower edge, deep red body
+.red {
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    #ff6aa0 8%,
+    #ff3d6e 22%,
+    rgb(200 40 110 / 0.5) 55%,
+    transparent 100%
+  );
+  animation-name: flowA;
+  animation-duration: 30s;
+  animation-delay: -6s;
+}
+
+// High, diffuse red aurora
+.redHigh {
+  background: linear-gradient(to top, transparent 0%, rgb(255 70 120 / 0.7) 20%, rgb(220 60 140 / 0.45) 55%, transparent 100%);
+  filter: blur(26px);
+  animation-name: flowC;
+  animation-duration: 38s;
+  animation-delay: -8s;
+}
+
+@keyframes flowA {
+  0% {
+    transform: translateX(-6%) skewX(-14deg) scaleY(0.9) rotate(-3deg);
+  }
+  50% {
+    transform: translateX(2%) skewX(6deg) scaleY(1.08) rotate(1deg);
+  }
+  100% {
+    transform: translateX(7%) skewX(-6deg) scaleY(0.96) rotate(3deg);
+  }
+}
+
+@keyframes flowB {
+  0% {
+    transform: translateX(5%) skewX(10deg) scaleY(1.05) rotate(2deg);
+  }
+  50% {
+    transform: translateX(-3%) skewX(-8deg) scaleY(0.88) rotate(-2deg);
+  }
+  100% {
+    transform: translateX(-8%) skewX(4deg) scaleY(1.1) rotate(1deg);
+  }
+}
+
+@keyframes flowC {
+  0% {
+    transform: translateX(-4%) skewX(4deg) scaleY(0.95);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateX(4%) skewX(-10deg) scaleY(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-2%) skewX(8deg) scaleY(0.9);
+    opacity: 0.8;
+  }
+}
+
+// ---------- Reflection on the sea ----------
+
+.reflection {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // Height of the sea area of the landscape SVG (waterline at 300/420 of its height)
+  height: max(calc(clamp(220px, 34vw, 480px) * 0.2857), 8.333vw);
+  overflow: hidden;
+  mix-blend-mode: screen;
+  // Horizontal ripple streaks
+  mask-image:
+    repeating-linear-gradient(to bottom, #000 0 3px, rgb(0 0 0 / 0.45) 3px 7px),
+    linear-gradient(to bottom, #000 0%, transparent 95%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+.glow {
+  position: absolute;
+  top: -40%;
+  height: 120%;
+  border-radius: 50%;
+  filter: blur(22px);
+  will-change: transform;
+  animation: sway 24s ease-in-out infinite alternate;
+}
+
+.glowGreen {
+  left: 5%;
+  width: 70%;
+  background: #46ff9f;
+  opacity: calc(var(--aurora-green, 0.6) * 0.35);
+}
+
+.glowViolet {
+  left: 45%;
+  width: 55%;
+  background: #7a6dff;
+  opacity: calc(var(--aurora-violet, 0.1) * 0.35);
+  animation-duration: 31s;
+}
+
+.glowRed {
+  left: 20%;
+  width: 60%;
+  background: #ff4f86;
+  opacity: calc(var(--aurora-red, 0) * 0.35);
+  animation-duration: 37s;
+}
+
+@keyframes sway {
+  from {
+    transform: translateX(-5%) scaleX(0.95);
+  }
+  to {
+    transform: translateX(5%) scaleX(1.05);
+  }
+}
+
+// ---------- Stars & moon ----------
+
+.stars {
+  position: absolute;
+  inset: 0 0 25% 0;
+  width: 100%;
+  height: 75%;
+  max-width: none;
+  fill: #e8f0ff;
+  opacity: 0.85;
+  mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+}
+
+.twinkle {
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.moon {
+  position: absolute;
+  top: 11%;
+  right: 13%;
+  width: 46px;
+  height: 46px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: #f2efe4;
+    overflow: visible;
+    filter: drop-shadow(0 0 10px rgb(242 239 228 / 0.45));
+  }
+}
+
+// ---------- Reduced motion: still aurora, no twinkle ----------
+
+@media (prefers-reduced-motion: reduce) {
+  .band,
+  .glow,
+  .twinkle {
+    animation: none;
+  }
+}

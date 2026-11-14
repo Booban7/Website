@@ -1,5 +1,42 @@
 @use 'variables' as *;
 
+// Theme tokens. Light values are the original Lofoten daylight palette.
+:root {
+  color-scheme: light;
+  --c-bg: #{$raw-snow};
+  --c-rule: #{$raw-mist};
+  --c-link-underline: #{$raw-fjord};
+  --c-secondary: #{$raw-slate};
+  --c-heading: #{$raw-deep-sea};
+  --c-text: #{$raw-text};
+  --c-text-muted: #{$raw-text-muted};
+  // Panels follow the scroll-driven page tint in light mode
+  --c-panel: var(--light-page, #{$raw-snow});
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --c-bg: #0d1620;
+  --c-rule: #263646;
+  --c-link-underline: #4f9c7f;
+  --c-secondary: #a9bccb;
+  --c-heading: #eef3f6;
+  --c-text: #e3eaef;
+  --c-text-muted: #a3b3bf;
+  --c-panel: #121e2a;
+}
+
+// Smooth colour change while switching theme (class set briefly by ThemeContext)
+.theme-transition,
+.theme-transition * {
+  transition:
+    background-color 0.6s ease,
+    color 0.6s ease,
+    border-color 0.6s ease,
+    fill 0.6s ease,
+    opacity 0.6s ease !important;
+}
+
 *,
 *::before,
 *::after {

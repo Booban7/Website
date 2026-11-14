@@ -11,7 +11,7 @@
 }
 
 .scrolled {
-  background: rgba(248, 250, 251, 0.88);
+  background: color-mix(in srgb, var(--c-panel) 85%, transparent);
   backdrop-filter: blur(8px);
   box-shadow: 0 1px 0 $mist;
 }
@@ -19,39 +19,98 @@
 .inner {
   max-width: $wide;
   margin: 0 auto;
-  padding: $space * 2.5 $space * 3;
+  padding: $space * 2.5 $space * 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: $space * 2;
+
+  @include md-up {
+    padding: $space * 2.5 $space * 3;
+  }
 }
 
 .name {
   font-family: $font-heading;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 500;
   color: $deep-sea;
   text-decoration: none;
   white-space: nowrap;
+
+  @include md-up {
+    font-size: 1.35rem;
+  }
+}
+
+.end {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  @include md-up {
+    gap: $space * 3;
+  }
 }
 
 .links {
   list-style: none;
   padding: 0;
   display: flex;
-  gap: $space * 2;
+  gap: $space * 1.5;
 
   @include md-up {
     gap: $space * 5;
   }
 
   a {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     color: $text-muted;
     text-decoration: none;
+
+    @include md-up {
+      font-size: 0.8125rem;
+    }
 
     &:hover {
       color: $deep-sea;
     }
+  }
+}
+
+// Phones: tighten so name, four links and the theme toggle fit on one row
+@media (max-width: 440px) {
+  .inner {
+    gap: $space;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .links {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 370px) {
+  .links {
+    gap: 7px;
+
+    a {
+      font-size: 0.6875rem;
+    }
+  }
+}
+
+// Very small phones (e.g. 320px): the name is already large in the hero,
+// so hide it here to keep all links and the theme toggle reachable
+@media (max-width: 345px) {
+  .name {
+    display: none;
+  }
+
+  .inner {
+    justify-content: flex-end;
   }
 }

@@ -1,0 +1,226 @@
+@use '@/styles/variables' as *;
+
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--light-sky-top) 0%, var(--light-sky-bottom) 75%);
+}
+
+.land {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: clamp(220px, 34vw, 480px);
+  max-width: none;
+  // Let the sun travel up into the sky above the landscape box
+  overflow: visible;
+}
+
+.sun {
+  transform: translate(var(--sun-x), var(--sun-y));
+}
+
+.sunDisc {
+  fill: var(--light-sun);
+}
+
+.glowStop {
+  stop-color: var(--light-sun-glow);
+}
+
+.far {
+  fill: var(--light-far);
+}
+
+.mid {
+  fill: var(--light-mid);
+}
+
+.near {
+  fill: var(--light-near);
+}
+
+.snow {
+  fill: var(--light-snow);
+}
+
+.seaTop {
+  stop-color: var(--light-sea-top);
+}
+
+.seaBottom {
+  stop-color: var(--light-sea-bottom);
+}
+
+.glitter {
+  fill: var(--light-glitter);
+  opacity: var(--glitter-opacity);
+  transform: translateX(var(--sun-x));
+}
+
+.waterline {
+  stroke: var(--light-snow);
+  stroke-width: 1.5;
+  opacity: 0.8;
+}
+
+.stilts {
+  stroke: $raw-deep-sea;
+  stroke-width: 2;
+}
+
+.cabinWall {
+  fill: $cabin;
+}
+
+.cabinRoof {
+  fill: $raw-deep-sea;
+}
+
+.door {
+  fill: $raw-snow;
+}
+
+.window {
+  fill: var(--light-window);
+}
+
+// Soft glow around each window only (strength follows the light cycle)
+.windowGlow {
+  fill: var(--light-window);
+  opacity: var(--window-glow);
+  filter: blur(2.5px);
+}
+
+.chimney {
+  fill: $raw-deep-sea;
+}
+
+// Chimney smoke: puffs rise, drift right, grow and fade (transform + opacity only)
+.puff {
+  fill: #f4f2ee;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: smoke 6s ease-out infinite;
+}
+
+@keyframes smoke {
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate(22px, -40px) scale(1.6);
+    opacity: 0;
+  }
+}
+
+// Reduced motion: a faint, still plume
+@media (prefers-reduced-motion: reduce) {
+  .puff {
+    animation: none;
+    opacity: 0.35;
+
+    &:nth-child(1) {
+      transform: translate(3px, -6px) scale(0.6);
+    }
+
+    &:nth-child(2) {
+      transform: translate(9px, -16px) scale(0.9);
+    }
+
+    &:nth-child(3) {
+      transform: translate(16px, -28px) scale(1.25);
+      opacity: 0.2;
+    }
+
+    &:nth-child(4) {
+      display: none;
+    }
+  }
+}
+
+// ---------- Dark mode: polar night over the same landscape ----------
+:global([data-theme='dark']) {
+  .scene {
+    background: linear-gradient(180deg, #03070f 0%, #071222 45%, #0f2233 80%);
+  }
+
+  .sun,
+  .glitter {
+    display: none;
+  }
+
+  .far {
+    fill: #1d2e3d;
+  }
+
+  .mid {
+    fill: #15232f;
+  }
+
+  .near {
+    fill: #0c1620;
+  }
+
+  .snow {
+    fill: #c8d6e5;
+    opacity: 0.55;
+  }
+
+  .seaTop {
+    stop-color: #0d1c29;
+  }
+
+  .seaBottom {
+    stop-color: #040910;
+  }
+
+  .waterline {
+    stroke: #3a5a6e;
+    opacity: 0.6;
+  }
+
+  .stilts,
+  .cabinRoof {
+    stroke: #0a121a;
+    fill: #0a121a;
+  }
+
+  .cabinWall {
+    fill: #7a3128;
+  }
+
+  .door {
+    fill: #2a1a14;
+  }
+
+  .window {
+    fill: #ffb44f;
+  }
+
+  .windowGlow {
+    fill: #ffb44f;
+    opacity: 0.75;
+  }
+
+  .chimney {
+    fill: #0a121a;
+  }
+
+  .puff {
+    fill: #8a9aac;
+  }
+}
+
+// Dark mode: dimmer, cooler smoke so it stays subtle against the night sky
+:global([data-theme='dark']) .smoke {
+  opacity: 0.65;
+}

@@ -5,4 +5,7 @@ export interface TimelineItem {
   start: string
   end: string
   description: string
+  location?: string
+  /** e.g. "Hybrid", "Internship" */
+  type?: string
 }

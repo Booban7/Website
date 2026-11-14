@@ -5,9 +5,19 @@
   @include section;
 }
 
+// Soft translucent panel so text stays readable over the moving scene
 .inner {
-  max-width: $column;
+  max-width: $column + 2 * $space * 6;
   margin: 0 auto;
+  padding: $space * 5 $space * 3;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--c-panel) 88%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  @include md-up {
+    padding: $space * 8 $space * 6;
+  }
 }
 
 .label {
