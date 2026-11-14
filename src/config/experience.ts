@@ -29,8 +29,7 @@ export const work: TimelineItem[] = [
     start: 'Jul 2021',
     end: 'Dec 2021',
     location: 'Linköping, Sweden',
-    // TODO: edit
-    description: "Worked on web development within Infor's enterprise software products.",
+    description: "Worked on Infor M3, the company's ERP system, developing its new web interface built with Angular.",
   },
   {
     id: 'aengeln',
@@ -40,8 +39,7 @@ export const work: TimelineItem[] = [
     end: 'Jun 2021',
     location: 'Växjö, Sweden',
     type: 'Internship',
-    // TODO: edit
-    description: 'Built and maintained websites and web features as part of the development team.',
+    description: 'Built an e-commerce website with React together with one other developer.',
   },
   {
     id: 'alpacha',
@@ -51,8 +49,7 @@ export const work: TimelineItem[] = [
     end: 'Nov 2020',
     location: 'Kalmar, Sweden',
     type: 'Internship',
-    // TODO: edit
-    description: 'First professional web development role, working with HTML, CSS and JavaScript.',
+    description: 'Worked on a website builder tool built with Angular.',
   },
 ]
 
