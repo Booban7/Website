@@ -11,9 +11,17 @@
   margin: 0 auto;
   padding: $space * 5 $space * 3;
   border-radius: 20px;
-  background: color-mix(in srgb, var(--c-panel) 88%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  // Light mode: see-through enough for the sun and its glow to shine through
+  background: color-mix(in srgb, var(--c-panel) 70%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  // Dark mode: denser, so text stays calm over the moving aurora
+  :global([data-theme='dark']) & {
+    background: color-mix(in srgb, var(--c-panel) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 
   @include md-up {
     padding: $space * 8 $space * 6;
