@@ -9,8 +9,7 @@ export const work: TimelineItem[] = [
     end: 'Present',
     location: 'Gothenburg, Sweden',
     type: 'Hybrid',
-    // TODO: edit
-    description: "Building and improving customer-facing web experiences for Walley's payment and checkout products.",
+    description: 'Working on the Walley app, continuously improving and developing it to deliver a smooth and great user experience.',
   },
   {
     id: 'pinpointer',

@@ -1,0 +1,105 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+// Pinned over the calm sea at the bottom of the screen, centred.
+// The sea is the one area that's always open regardless of screen size.
+.hint {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  z-index: 10;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 4px $space;
+  color: $deep-sea;
+  text-decoration: none;
+  transition: opacity 0.4s ease;
+
+  &:hover .line {
+    opacity: 0.9;
+  }
+
+  :global([data-theme='dark']) & {
+    filter: drop-shadow(0 1px 3px rgb(3 7 15 / 0.9));
+  }
+
+  @include md-up {
+    bottom: 22px;
+  }
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  // Optical centring: compensate for trailing letter-spacing
+  padding-left: 0.25em;
+}
+
+.line {
+  position: relative;
+  width: 1px;
+  height: 28px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.dot {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: slide 2s ease-in-out infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+    transform: translateY(11px);
+  }
+
+  .hint {
+    transition: none;
+  }
+}
+
+// Phones: the sea is shallow, so show only the line with the moving dot
+@media (max-width: $bp-md - 1px) {
+  .hint {
+    bottom: 10px;
+  }
+
+  .label {
+    display: none;
+  }
+}

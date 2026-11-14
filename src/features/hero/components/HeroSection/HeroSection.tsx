@@ -1,4 +1,5 @@
 import { profile } from '@/config/profile'
+import { ScrollHint } from '../ScrollHint/ScrollHint'
 import styles from './HeroSection.module.scss'
 
 export function HeroSection() {
@@ -18,6 +19,7 @@ export function HeroSection() {
           </p>
         </div>
       </div>
+      <ScrollHint />
     </section>
   )
 }
