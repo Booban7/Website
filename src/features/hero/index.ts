@@ -1,1 +1,1 @@
-export { HeroPanel } from './components/HeroPanel/HeroPanel'
+export { HeroSection } from './components/HeroSection/HeroSection'

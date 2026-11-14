@@ -1,0 +1,43 @@
+@use '@/styles/variables' as *;
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  padding: $space * 5 0;
+  border-top: 1px solid $mist;
+
+  &:last-child {
+    border-bottom: 1px solid $mist;
+  }
+}
+
+.name {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.desc {
+  margin-top: $space;
+  color: $text-muted;
+}
+
+.tech {
+  margin-top: $space * 1.5;
+  font-size: 0.875rem;
+  color: $slate;
+}
+
+.links {
+  margin-top: $space * 2;
+  display: flex;
+  gap: $space * 3;
+  font-size: 0.9375rem;
+}
+
+.more {
+  margin-top: $space * 5;
+  color: $text-muted;
+}

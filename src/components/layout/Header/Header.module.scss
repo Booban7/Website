@@ -1,0 +1,57 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  transition:
+    background 0.3s,
+    box-shadow 0.3s;
+}
+
+.scrolled {
+  background: rgba(248, 250, 251, 0.88);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 0 $mist;
+}
+
+.inner {
+  max-width: $wide;
+  margin: 0 auto;
+  padding: $space * 2.5 $space * 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space * 2;
+}
+
+.name {
+  font-family: $font-heading;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: $deep-sea;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: $space * 2;
+
+  @include md-up {
+    gap: $space * 5;
+  }
+
+  a {
+    font-size: 0.8125rem;
+    color: $text-muted;
+    text-decoration: none;
+
+    &:hover {
+      color: $deep-sea;
+    }
+  }
+}

@@ -1,5 +1,4 @@
 @use 'variables' as *;
-@use 'mixins' as *;
 
 *,
 *::before,
@@ -7,58 +6,77 @@
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
-  height: 100%;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
 }
 
 body {
   margin: 0;
-  background: $birch;
-  color: $spruce;
+  background: $snow;
+  color: $text;
   font-family: $font-body;
-  font-size: 1rem;
-  line-height: 1.55;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
-  overflow: clip;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: $fjord;
-  text-underline-offset: 3px;
-
-  &:hover {
-    color: $pine;
-  }
 }
 
 h1,
 h2,
-h3,
-h4 {
+h3 {
   margin: 0;
-  @include heading;
+  font-family: $font-heading;
+  font-weight: 500;
+  line-height: 1.15;
+  color: $deep-sea;
 }
 
-p {
+p,
+ul,
+ol {
   margin: 0;
 }
 
-button {
-  font: inherit;
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: $deep-sea;
+  text-decoration-color: $fjord;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s;
+
+  &:hover {
+    text-decoration-color: $deep-sea;
+  }
 }
 
 :focus-visible {
-  outline: 3px solid $fjord;
-  outline-offset: 3px;
-  border-radius: 6px;
+  outline: 2px solid $deep-sea;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 12px;
+  z-index: 100;
+  padding: 8px 16px;
+  background: $snow;
+  border: 1px solid $deep-sea;
+
+  &:focus {
+    left: 12px;
+  }
 }
 
 .visually-hidden {
@@ -68,19 +86,4 @@ button {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
-}
-
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 8px;
-  z-index: 200;
-  padding: 8px 16px;
-  background: $birch-light;
-  border: 2px solid $pine;
-  border-radius: 8px;
-
-  &:focus {
-    left: 8px;
-  }
 }

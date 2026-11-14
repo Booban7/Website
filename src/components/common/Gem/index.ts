@@ -1,1 +1,0 @@
-export { Gem } from './Gem'

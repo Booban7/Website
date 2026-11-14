@@ -1,47 +1,18 @@
-// Minimal palette: ink, paper, one gold accent.
-// Legacy names are kept as aliases so components stay unchanged.
-$ink: #1d1d1b;
-$paper: #f7f5f0;
-$paper-dim: #ece8df;
-$muted: #6f6c66;
-$gold: #b8933f;
-$gold-light: #d9bd7a;
+// Lofoten daylight palette
+$snow: #f8fafb;
+$mist: #e6edf1;
+$fjord: #9fb4c2;
+$slate: #5b6e7b;
+$deep-sea: #2c4250;
+$text: #1f2b33;
+$text-muted: #55636d;
+$cabin: #b5483a;
 
-$birch: $paper;
-$birch-light: #fdfcf9;
-$moss-pale: $paper-dim;
-$felt: $paper-dim;
-$felt-dark: $paper-dim;
-$ash-light: $paper;
-$ash: $paper-dim;
-$ash-dark: $muted;
+$font-heading: 'Cormorant Garamond', Georgia, serif;
+$font-body: 'Inter', system-ui, sans-serif;
 
-$pine: $ink;
-$pine-light: $ink;
-$spruce: $ink;
-$stone: $muted;
-$fjord: $ink;
-$fjord-light: $ink;
-
-$line: 3px;
-$line-thin: 2px;
-
-// Skill badges: all monochrome, only the rune differs
-$gems: (
-  'amber': $birch-light,
-  'moss': $birch-light,
-  'fjord': $birch-light,
-  'berry': $birch-light,
-  'frost': $birch-light,
-);
-
-$font-heading: 'Marcellus', 'Times New Roman', serif;
-$font-body: 'Nunito', system-ui, sans-serif;
-
-$radius: 14px;
 $space: 8px;
-
-$card-w: 150px;
-$card-h: 210px;
+$column: 680px;
+$wide: 1040px;
 
 $bp-md: 768px;

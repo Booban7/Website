@@ -1,0 +1,1 @@
+export { LofotenLandscape } from './LofotenLandscape'

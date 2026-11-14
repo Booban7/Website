@@ -6,70 +6,11 @@
   }
 }
 
-@mixin reduced-motion {
-  @media (prefers-reduced-motion: reduce) {
-    @content;
+/// Generous vertical rhythm for page sections
+@mixin section {
+  padding: $space * 14 $space * 3;
+
+  @include md-up {
+    padding: $space * 20 $space * 4;
   }
-}
-
-@mixin heading($size: 1.25rem) {
-  font-family: $font-heading;
-  font-weight: 400;
-  font-size: $size;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
-  color: $ink;
-}
-
-/// Bold ink frame: flat birch body, thick ink border, gold inner line, hard offset shadow
-@mixin ink-frame($radius: 6px) {
-  position: relative;
-  background: $birch-light;
-  border: $line solid $ink;
-  border-radius: $radius;
-  box-shadow:
-    inset 0 0 0 4px $birch-light,
-    inset 0 0 0 5px $ink,
-    4px 5px 0 rgba(29, 29, 27, 0.12);
-}
-
-/// Knotwork corner pieces (top-left & bottom-right, plus mirrored via ::after)
-$_knot: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%231d1d1b' stroke-width='3.5' stroke-linecap='round'%3E%3Cpath d='M4 36 V12 Q4 4 12 4 H36'/%3E%3Cpath d='M12 30 V18 Q12 12 18 12 H30'/%3E%3Ccircle cx='22' cy='22' r='5' stroke='%23b8933f'/%3E%3Cpath d='M4 20 Q14 20 17 18 M20 4 Q20 14 18 17' stroke='%23b8933f'/%3E%3C/g%3E%3C/svg%3E";
-
-@mixin knot-corners($size: 34px) {
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: $size;
-    height: $size;
-    background: url($_knot) no-repeat center / contain;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  &::before {
-    top: 6px;
-    left: 6px;
-  }
-
-  &::after {
-    bottom: 6px;
-    right: 6px;
-    transform: rotate(180deg);
-  }
-}
-
-/// Bold interlace divider band
-@mixin interlace-divider($height: 16px) {
-  height: $height;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16' viewBox='0 0 32 16'%3E%3Cg fill='none' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0 8 C8 -2 8 18 16 8 S24 -2 32 8' stroke='%231d1d1b'/%3E%3Cpath d='M0 8 C8 18 8 -2 16 8 S24 18 32 8' stroke='%23b8933f'/%3E%3C/g%3E%3C/svg%3E")
-    repeat-x center / auto 100%;
-}
-
-/// Gold shield-shaped badge (used for card cost)
-@mixin gold-shield {
-  background: linear-gradient(180deg, $gold-light, $gold);
-  color: $ink;
-  clip-path: path('M0 0 H36 V20 C36 32 18 40 18 40 C18 40 0 32 0 20Z');
 }

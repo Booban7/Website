@@ -3,37 +3,25 @@ import type { Project } from '@/types/project.types'
 // TODO: replace placeholder content with your own
 export const projects: Project[] = [
   {
-    id: 'rune-shop',
-    name: 'Rune Shop',
+    id: 'project-one',
+    name: 'Project One',
     description: 'An e-commerce storefront with cart, filters and a smooth checkout flow.',
-    tech: [
-      { name: 'React', gem: 'fjord' },
-      { name: 'TypeScript', gem: 'fjord' },
-      { name: 'SCSS', gem: 'berry' },
-    ],
-    githubUrl: 'https://github.com/your-username/rune-shop',
+    tech: ['React', 'TypeScript', 'SCSS'],
+    githubUrl: 'https://github.com/your-username/project-one',
     liveUrl: 'https://example.com',
   },
   {
-    id: 'forest-tracker',
-    name: 'Forest Tracker',
-    description: 'A dashboard for tracking hiking stats with charts and real-time updates.',
-    tech: [
-      { name: 'React', gem: 'fjord' },
-      { name: 'Charts', gem: 'amber' },
-      { name: 'Vitest', gem: 'moss' },
-    ],
-    githubUrl: 'https://github.com/your-username/forest-tracker',
+    id: 'project-two',
+    name: 'Project Two',
+    description: 'A dashboard for tracking stats with charts and real-time updates.',
+    tech: ['React', 'Charts', 'Vitest'],
+    githubUrl: 'https://github.com/your-username/project-two',
   },
   {
-    id: 'yggdrasil-ui',
-    name: 'Yggdrasil UI',
-    description: 'A small open-source library of accessible, nature-inspired UI components.',
-    tech: [
-      { name: 'TypeScript', gem: 'fjord' },
-      { name: 'Storybook', gem: 'berry' },
-      { name: 'a11y', gem: 'moss' },
-    ],
-    githubUrl: 'https://github.com/your-username/yggdrasil-ui',
+    id: 'project-three',
+    name: 'Project Three',
+    description: 'A small open-source library of accessible UI components.',
+    tech: ['TypeScript', 'Storybook', 'a11y'],
+    githubUrl: 'https://github.com/your-username/project-three',
   },
 ]

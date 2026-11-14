@@ -1,1 +1,1 @@
-export { ExperiencePanel } from './components/ExperiencePanel/ExperiencePanel'
+export { ExperienceSection } from './components/ExperienceSection/ExperienceSection'

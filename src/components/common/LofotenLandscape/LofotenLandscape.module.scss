@@ -1,0 +1,15 @@
+@use '@/styles/variables' as *;
+
+.landscape {
+  width: 100%;
+  height: clamp(200px, 30vw, 440px);
+  max-width: none;
+}
+
+.outline {
+  fill: none;
+  stroke: $fjord;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  opacity: 0.6;
+}

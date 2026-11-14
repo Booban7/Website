@@ -1,10 +1,8 @@
-import type { Skill } from './profile.types'
-
 export interface Project {
   id: string
   name: string
   description: string
-  tech: Skill[]
+  tech: string[]
   githubUrl?: string
   liveUrl?: string
 }

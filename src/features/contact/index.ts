@@ -1,1 +1,1 @@
-export { ContactPanel } from './components/ContactPanel/ContactPanel'
+export { ContactSection } from './components/ContactSection/ContactSection'
